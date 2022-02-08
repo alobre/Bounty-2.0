@@ -1,11 +1,14 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import styles from './styles';
+import colors from '../../../global/variables/colors';
 
 const Tag = ({label, isActive}) =>{
     return(
-        <View style={styles.tagParent}>
-            <Text style={styles.tagLabel}>{label}</Text>
+        <View style={[styles.tagParent, isActive && {
+            borderColor: colors.neonGreen,
+          }]}>
+            <Text style={[styles.tagLabel]}>{label}</Text>
         </View>
     )
 }
@@ -16,7 +19,7 @@ const Tags = ({tags}) =>{
         <View style={styles.tags}>
             {
                 ((tags) ? true : false) &&
-                tags.map((tag) => <Tag label={tag} key={tag}></Tag>)
+                tags.map((tag) => <Tag label={tag} isActive={tag.isActive} key={tag}></Tag>)
             }
         </View>
     ) : 

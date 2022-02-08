@@ -11,6 +11,9 @@ const styles = StyleSheet.create({
         paddingVertical: 3,
         marginRight: 5,
     },
+    greenBorder:{
+        borderColor: 'green'
+    },
     tagLabel:{
         color: colors.black
     },
