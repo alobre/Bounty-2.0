@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
     profilePicParent:{
         height: picDimensions + 5,
         width: picDimensions + 5,
-        backgroundColor: 'blue',
         borderRadius: picDimensions,
         justifyContent: 'center',
         alignItems: 'center'

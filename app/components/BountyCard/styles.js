@@ -29,7 +29,28 @@ const styles = StyleSheet.create({
         fontSize: fonts.bountyCardTitleFontSize,
     },
     description:{
-        fontSize: fonts.bountyCardDescriptionFontSize
+        fontSize: fonts.bountyCardDescriptionFontSize,
+        color: colors.black,
+    },
+    profileWrapper:{
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    usernameAndRating:{
+        marginLeft: 5
+    }, 
+    username: {
+        color: colors.usernameBlue,
+        fontSize: fonts.usernameFontSize
+    },
+    rating: {
+        color: colors.neutralGreen
+    },
+    ratingWrapper:{
+        flexDirection: 'row'
+    },
+    ratingLength:{
+        marginLeft: 3
     }
 })
 export default styles;

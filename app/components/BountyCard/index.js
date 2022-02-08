@@ -2,18 +2,32 @@ import React from 'react';
 import { View, Text, Image } from 'react-native';
 import styles from './styles';
 import ProfilePic from './ProfilePic';
+import Tags from './Tags';
 
-const BountyCard = ({title, user, description, bounty, image}) =>{
+const BountyCard = ({title, user, description, bounty, image, tags}) =>{
+    const avg = (array) => {
+        let total = 0;
+        array.map(num => total += num);
+        const result = total / array.length;
+        return result.toFixed(1);
+    }
     return(
     <View style={styles.bountyCard}>
         <View>
             <View>
                <Text style={styles.title}>{title}</Text> 
             </View>
-            <View>
+            <Tags tags={tags}></Tags>
+            <View style={styles.profileWrapper}>
                 <ProfilePic uri='https://i.vimeocdn.com/portrait/58832_300x300.jpg'/>
-                <Text style={styles.username}>{user.username}</Text>
-                <Text style={styles.rating}>{user.rating}</Text> 
+                <View style={styles.usernameAndRating}>
+                    <Text style={styles.username}>{user.username}</Text>
+                    <View style={styles.ratingWrapper}>
+                        <Text style={styles.rating}>{avg(user.rating)}</Text> 
+                        <Text style={styles.ratingLength}>({user.rating.length})</Text>
+                    </View>
+                </View>
+                
             </View>
             <View>
                <Text style={styles.description}>{description}</Text> 

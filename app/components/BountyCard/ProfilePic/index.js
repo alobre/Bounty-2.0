@@ -1,18 +1,18 @@
 import React from 'react';
 import { View, Image } from 'react-native';
 import styles from './styles';
-
+import LinearGradient from 'react-native-linear-gradient';
 
 const ProfilePic = ({uri}) =>{
     return(
-        <View style={styles.profilePicParent}>
+        <LinearGradient colors={['#2EB3FD', '#00477A']} start={{x: 1, y: 1}} end={{x: 0.1, y: 0.1}} style={styles.profilePicParent}>
             <Image
                 style={styles.profilePic}
                 source={{
                 uri: uri,
                 }}
                 />
-        </View>
+        </LinearGradient>
     )
 } 
 export default ProfilePic;

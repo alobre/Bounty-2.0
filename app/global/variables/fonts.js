@@ -5,6 +5,6 @@ const fonts = StyleSheet.create({
 
     bountyCardDescriptionFontSize: 16,
 
-
+    usernameFontSize: 16,
 })
 export default fonts;
