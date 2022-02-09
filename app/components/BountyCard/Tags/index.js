@@ -1,15 +1,15 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import colors from '../../../global/variables/colors';
 
 const Tag = ({label, isActive}) =>{
     return(
-        <View style={[styles.tagParent, isActive && {
+        <TouchableOpacity style={[styles.tagParent, isActive && {
             borderColor: colors.neonGreen,
           }]}>
             <Text style={[styles.tagLabel]}>{label}</Text>
-        </View>
+        </TouchableOpacity>
     )
 }
 

@@ -51,6 +51,19 @@ const styles = StyleSheet.create({
     },
     ratingLength:{
         marginLeft: 3
+    },
+    tagLocationWrapper:{
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: '100%',
+        justifyContent: 'space-between'
+    },
+    tags:{
+        flexGrow: 7
+    },
+    location:{
+        flexGrow: 3,
+        alignSelf: 'flex-end',
     }
 })
 export default styles;
