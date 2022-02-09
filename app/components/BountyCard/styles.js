@@ -59,11 +59,17 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     tags:{
-        flexGrow: 7
     },
     location:{
-        flexGrow: 3,
         alignSelf: 'flex-end',
+    },
+    profileBountyWrapper:{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    bounty:{
+
     }
 })
 export default styles;

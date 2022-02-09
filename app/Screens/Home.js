@@ -10,11 +10,15 @@ export default Home = ({navigation}) =>{
             username: 'Mark Mayer',
             rating: [5,3,5,5,5,4,5]
         },
-        tags: ['Einkauf', 'Hilfe']
+        tags: ['Einkauf', 'Hilfe'],
+        bounty: {
+            price: 5,
+            currency: '€'
+        }
     }
     return(
         <View>
-            <BountyCard title="Einkaufen gehen" description={Task.description} user={Task.user} tags={Task.tags} />
+            <BountyCard title="Einkaufen gehen" description={Task.description} user={Task.user} tags={Task.tags} bounty={Task.bounty.price} currency={Task.bounty.currency}/>
         </View>
     )
 }
