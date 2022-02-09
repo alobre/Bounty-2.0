@@ -5,8 +5,9 @@ import ProfilePic from './ProfilePic';
 import Tags from './Tags';
 import Location from './Location'
 import Bounty from './Bounty'
+import InteractionSection from './InteractionSection';
 
-const BountyCard = ({title, user, description, bounty, currency, image, tags}) =>{
+const BountyCard = ({title, user, description, bounty, currency, image, tags, interactions}) =>{
     const avg = (array) => {
         let total = 0;
         array.map(num => total += num);
@@ -25,7 +26,7 @@ const BountyCard = ({title, user, description, bounty, currency, image, tags}) =
             </View>
             <View style={styles.profileBountyWrapper}>
                 <View style={styles.profileWrapper}>
-                    <ProfilePic uri='https://i.vimeocdn.com/portrait/58832_300x300.jpg'/>
+                    <ProfilePic uri='https://bilder.berchtesgadener-land.com/workspace/pixxio/tt.php?w=1600&q=80&dataPath=/pixxiodata/systems/bgl&src=/fileArchiv/tb/TbCqc1wa4Y2wVbKDSf__1535620105_5427100.jpg'/>
                     <View style={styles.usernameAndRating}>
                         <Text style={styles.username}>{user.username}</Text>
                         <View style={styles.ratingWrapper}>
@@ -41,7 +42,7 @@ const BountyCard = ({title, user, description, bounty, currency, image, tags}) =
             </View>
         </View>
         <View>
-            {/* InteractionSection */}
+            <InteractionSection interactions={interactions}/>
         </View>
     </View>
     )

@@ -14,11 +14,49 @@ export default Home = ({navigation}) =>{
         bounty: {
             price: 5,
             currency: '€'
-        }
+        },
+        interactions:[
+            {
+                profilePic: 'https://i.vimeocdn.com/portrait/58832_300x300.jpg',
+                username: 'Miriam Beck',
+                rating: [3,4,5,5,4,5,5,5,4,5,3,5,5],
+                comment: 'Bis wann benötigst du die Ware?'
+            },
+            {
+                profilePic: 'https://i.vimeocdn.com/portrait/58832_300x300.jpg',
+                username: 'Paul Lorenz',
+                rating: [5,5],
+                comment: 'Ist es egal ob Billa, Spar oder Hofer?'
+            },
+            {
+                profilePic: 'https://i.vimeocdn.com/portrait/58832_300x300.jpg',
+                username: 'Ronald Weiss',
+                rating: [3,4,5,5,4,5,5,5,4,5,3,5,5],
+                comment: 'Bis wann benötigst du die Ware?'
+            },
+            {
+                profilePic: 'https://i.vimeocdn.com/portrait/58832_300x300.jpg',
+                username: 'Lisa Markov',
+                rating: [5,5],
+                comment: 'Ist es egal ob Billa, Spar oder Hofer?'
+            },
+            {
+                profilePic: 'https://i.vimeocdn.com/portrait/58832_300x300.jpg',
+                username: 'Sarah Schmid',
+                rating: [3,4,5,5,4,5,5,5,4,5,3,5,5],
+                comment: 'Bis wann benötigst du die Ware?'
+            },
+            {
+                profilePic: 'https://i.vimeocdn.com/portrait/58832_300x300.jpg',
+                username: 'Daniel Ludwig',
+                rating: [5,5],
+                comment: 'Ist es egal ob Billa, Spar oder Hofer?'
+            }
+        ]
     }
     return(
         <View>
-            <BountyCard title="Einkaufen gehen" description={Task.description} user={Task.user} tags={Task.tags} bounty={Task.bounty.price} currency={Task.bounty.currency}/>
+            <BountyCard title="Einkaufen gehen" description={Task.description} user={Task.user} tags={Task.tags} bounty={Task.bounty.price} currency={Task.bounty.currency} interactions={Task.interactions}/>
         </View>
     )
 }
