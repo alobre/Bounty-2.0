@@ -1,6 +1,7 @@
 import React, { useCallback, useState, setState } from 'react';
 import { View, Text, Image } from 'react-native';
 import styles from './styles';
+import avg from 'app/global/functions/avg';
 import ProfilePic from './ProfilePic';
 import Tags from './Tags';
 import Location from './Location'
@@ -9,28 +10,28 @@ import InteractionSection from './InteractionSection';
 import Bookmark from './Bookmark';
 import ThreeVerticalDots from './ThreeVerticalDots';
 
-const BountyCard = ({title, user, description, bounty, currency, image, tags, interactions}) =>{
-    const avg = (array) => {
-        let total = 0;
-        array.map(num => total += num);
-        const result = total / array.length;
-        return result.toFixed(1);
-    }
+const BountyCard = ({navigation, title, user, description, bounty, currency, image, tags, interactions}) =>{
     const [numOfLines, setNumOfLines] = useState(4);
-    const [ showMore, setShowMore ] = useState(false);
+    const [showMore, setShowMore] = useState(false);
     const [showMoreActive, setShowMoreActive] = useState(false)
+    const [descriptonNumOfLines, setDescriptionNumOfLines] = useState(0)
+
     const onTextLayout = useCallback(e => {
         setShowMore(e.nativeEvent.lines.length > numOfLines);
-        console.log(e.nativeEvent)
+        setDescriptionNumOfLines(e.nativeEvent.lines.length);
       }, []);
     const showMoreText = () =>{
-        setNumOfLines(10);
+        setNumOfLines(descriptonNumOfLines);
         setShowMoreActive(true)
     }
     const showLessText = () =>{
         setNumOfLines(4);
         setShowMoreActive(false)
     }
+
+    const [bountyDetails, setBountyDetails] = useState({
+        title, user, description, bounty, currency, image, tags, interactions
+    })
     return(
     <View style={styles.bountyCard}>
         <View>
@@ -65,7 +66,7 @@ const BountyCard = ({title, user, description, bounty, currency, image, tags, in
             </View>
         </View>
         <View>
-            <InteractionSection interactions={interactions}/>
+            <InteractionSection navigation={navigation} bountyDetails={bountyDetails}/>
         </View>
     </View>
     )

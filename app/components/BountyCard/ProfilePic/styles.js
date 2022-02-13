@@ -3,7 +3,7 @@ import colors from 'app/global/variables/colors';
 
 const { width, height } = Dimensions.get('window');
 
-const picDimensions = height * 0.08
+const picDimensions = height * 0.07
 
 const styles = StyleSheet.create({
     profilePicParent:{
