@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import BountyCard from 'app/components/BountyCard';
 export default Home = ({navigation}) =>{
     const Task = {
+        title: 'Einkaufen gehen',
         description: `Ich benötige folgende Dinge:Bananen, Milch, Toastbrot, Butter, 200g Haussalami, Tiefkühlpizza (Salami), Schafkäse, Tomaten, Mozzerella.
         Bei Interesse bitte Schreiben!`,
         user: {
@@ -55,8 +56,12 @@ export default Home = ({navigation}) =>{
         ]
     }
     return(
-        <View>
-            <BountyCard title="Einkaufen gehen" description={Task.description} user={Task.user} tags={Task.tags} bounty={Task.bounty.price} currency={Task.bounty.currency} interactions={Task.interactions}/>
-        </View>
+        <ScrollView>
+            <BountyCard title={Task.title} description={Task.description} user={Task.user} tags={Task.tags} bounty={Task.bounty.price} currency={Task.bounty.currency} interactions={Task.interactions}/>
+            <BountyCard title={Task.title} description={Task.description} user={Task.user} tags={Task.tags} bounty={Task.bounty.price} currency={Task.bounty.currency} interactions={Task.interactions}/>
+            <BountyCard title={Task.title} description={Task.description} user={Task.user} tags={Task.tags} bounty={Task.bounty.price} currency={Task.bounty.currency} interactions={Task.interactions}/>
+            <BountyCard title={Task.title} description={Task.description} user={Task.user} tags={Task.tags} bounty={Task.bounty.price} currency={Task.bounty.currency} interactions={Task.interactions}/>
+            <BountyCard title='ALOBRE ALOBRE ALOBRE ALOBRE ALOBRE ALOBRE ALOBRE' description='alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre ' user={Task.user} tags={Task.tags} bounty={Task.bounty.price} currency={Task.bounty.currency} interactions={Task.interactions}/>
+        </ScrollView>
     )
 }

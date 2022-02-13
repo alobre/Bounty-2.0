@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useState, setState } from 'react';
 import { View, Text, Image } from 'react-native';
 import styles from './styles';
 import ProfilePic from './ProfilePic';
@@ -8,7 +8,6 @@ import Bounty from './Bounty'
 import InteractionSection from './InteractionSection';
 import Bookmark from './Bookmark';
 import ThreeVerticalDots from './ThreeVerticalDots';
-import Icon from 'react-native-vector-icons/Ionicons';
 
 const BountyCard = ({title, user, description, bounty, currency, image, tags, interactions}) =>{
     const avg = (array) => {
@@ -17,11 +16,26 @@ const BountyCard = ({title, user, description, bounty, currency, image, tags, in
         const result = total / array.length;
         return result.toFixed(1);
     }
+    const [numOfLines, setNumOfLines] = useState(4);
+    const [ showMore, setShowMore ] = useState(false);
+    const [showMoreActive, setShowMoreActive] = useState(false)
+    const onTextLayout = useCallback(e => {
+        setShowMore(e.nativeEvent.lines.length > numOfLines);
+        console.log(e.nativeEvent)
+      }, []);
+    const showMoreText = () =>{
+        setNumOfLines(10);
+        setShowMoreActive(true)
+    }
+    const showLessText = () =>{
+        setNumOfLines(4);
+        setShowMoreActive(false)
+    }
     return(
     <View style={styles.bountyCard}>
         <View>
             <View style={styles.titleWrap}>
-               <Text style={styles.title}>{title}</Text>
+               <Text style={styles.title} numberOfLines={2}>{title}</Text>
                <View style={styles.upperIcons}>
                    <Bookmark bookmarked={false} size={24}/>
                    <ThreeVerticalDots size={24}/>
@@ -45,7 +59,9 @@ const BountyCard = ({title, user, description, bounty, currency, image, tags, in
                 <Bounty style={styles.bounty} currency={currency} bounty={bounty} size={24}/>
             </View>
             <View>
-               <Text style={styles.description}>{description}</Text> 
+               <Text style={styles.description} numberOfLines={numOfLines} onTextLayout={onTextLayout}>{description}</Text>
+               {!showMoreActive && showMore && <Text onPress={showMoreText}>Show More</Text>}
+               {showMoreActive && <Text onPress={showLessText}>Show Less</Text>}
             </View>
         </View>
         <View>
