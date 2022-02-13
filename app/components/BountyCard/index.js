@@ -6,6 +6,9 @@ import Tags from './Tags';
 import Location from './Location'
 import Bounty from './Bounty'
 import InteractionSection from './InteractionSection';
+import Bookmark from './Bookmark';
+import ThreeVerticalDots from './ThreeVerticalDots';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const BountyCard = ({title, user, description, bounty, currency, image, tags, interactions}) =>{
     const avg = (array) => {
@@ -17,8 +20,12 @@ const BountyCard = ({title, user, description, bounty, currency, image, tags, in
     return(
     <View style={styles.bountyCard}>
         <View>
-            <View>
-               <Text style={styles.title}>{title}</Text> 
+            <View style={styles.titleWrap}>
+               <Text style={styles.title}>{title}</Text>
+               <View style={styles.upperIcons}>
+                   <Bookmark bookmarked={false} size={24}/>
+                   <ThreeVerticalDots size={24}/>
+               </View>
             </View>
             <View style={styles.tagLocationWrapper}>
                 <Tags style={styles.tags} tags={tags} />

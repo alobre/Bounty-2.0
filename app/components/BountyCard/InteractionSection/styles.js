@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import colors from '../../../global/variables/colors';
-import fonts from '../../../global/variables/fonts';
+import colors from 'app/global/variables/colors';
+import fonts from 'app/global/variables/fonts';
 
 const { width, height } = Dimensions.get('window');
 
@@ -10,7 +10,11 @@ const styles = StyleSheet.create({
     InteractionSection:{
         marginTop: 5,
         flexDirection: 'row',
-        alignItems: 'center'
+        justifyContent: 'space-between'
+    },
+    comments:{
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     image:{
         width: picDimensions,
@@ -30,6 +34,15 @@ const styles = StyleSheet.create({
         marginLeft: 5,
         fontSize: fonts.interactionsLengthFontSize,
         color: colors.black
+    },
+    handshakeIcon:{
+
+    },
+    handshakeIconButton:{
+        backgroundColor: colors.limeGreen,
+        borderRadius: 50,
+        padding: 5,
+        
     }
 })
 export default styles;

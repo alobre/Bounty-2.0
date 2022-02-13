@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import BountyCard from '../components/BountyCard';
+import BountyCard from 'app/components/BountyCard';
 export default Home = ({navigation}) =>{
     const Task = {
         description: `Ich benötige folgende Dinge:Bananen, Milch, Toastbrot, Butter, 200g Haussalami, Tiefkühlpizza (Salami), Schafkäse, Tomaten, Mozzerella.

@@ -1,6 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import fonts from '../../../global/variables/fonts';
-import colors from '../../../global/variables/colors';
+import colors from 'app/global/variables/colors';
 
 const styles = StyleSheet.create({
     bountyText:{

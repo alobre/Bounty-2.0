@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import fonts from '../../global/variables/fonts';
-import colors from '../../global/variables/colors';
+import fonts from 'app/global/variables/fonts';
+import colors from 'app/global/variables/colors';
 
 const { width, height } = Dimensions.get('window');
 const paddingHorizontal = width * 0.05
@@ -23,6 +23,10 @@ const styles = StyleSheet.create({
         borderRadius: picDimensions,
         borderColor: colors.black,
         borderWidth: 2,
+    },
+    titleWrap:{
+        flexDirection: 'row',
+        justifyContent: 'space-between'
     },
     title:{
         color: colors.black,
@@ -70,6 +74,10 @@ const styles = StyleSheet.create({
     },
     bounty:{
 
+    },
+    upperIcons:{
+        flexDirection: 'row',
+        marginTop: 5
     }
 })
 export default styles;

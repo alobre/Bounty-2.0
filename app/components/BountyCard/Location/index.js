@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import Icon2 from 'react-native-vector-icons/FontAwesome5'
 import styles from './styles';
-import colors from '../../../global/variables/colors';
+import colors from 'app/global/variables/colors';
 
 const Location = ({zip, city}) =>{
     return(
