@@ -18,7 +18,21 @@ const CommentSection = ({navigation, route}) =>{
                     <Icon size={30} name='send'/>
                 </TouchableOpacity>
             </View>
-            {bd.interactions.map(user => <Comment key={user.username + Date.now()} username={user.username} rating={user.rating} profilePic={user.profilePic} comment={user.comment} />)}
+            {bd.interactions.map(user => {
+                // current comment
+                const comment_id = user.comment_id.split(':');
+                if(comment_id.length == 2){
+                    // check if comment has subcomments
+                    const subcomment = bd.interactions.filter(u => {
+                        const subcomment_id = u.comment_id.split(':');
+                        // console.log('length: ', subcomment_id.length, 'comment_id: ', comment_id[1], 'subcomment_id: ', subcomment_id[1])
+                        if(subcomment_id.length > 2 && comment_id[1] == subcomment_id[1]) return u
+                    });
+                    return <Comment key={user.uid + user.time + user.date } username={user.username} rating={user.rating} profilePic={user.profilePic} comment={user.comment} />
+                }
+
+                
+            })}
         </View>
     )
 }

@@ -7,7 +7,7 @@ const picDimensions = height * 0.07
 
 const styles = StyleSheet.create({
    textInputParent:{
-
+    
    },
    textInput:{
        width: width * 0.9,
