@@ -8,5 +8,7 @@ const fonts = StyleSheet.create({
     usernameFontSize: 16,
 
     interactionsLengthFontSize: 18,
+
+    commentTextFontSize: 16
 })
 export default fonts;

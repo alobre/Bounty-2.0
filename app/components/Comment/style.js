@@ -7,7 +7,20 @@ const { width, height } = Dimensions.get('window');
 const picDimensions = height * 0.08
 
 const styles = StyleSheet.create({
-   
+    comment:{
+        backgroundColor: colors.white,
+        paddingVertical: 5,
+        paddingHorizontal: 15,
+        borderBottomColor: colors.borderGrey,
+        borderBottomWidth: 1,
+    },
+    textParent:{
+
+    },
+    text:{
+        fontSize: fonts.commentTextFontSize,
+        color: colors.black
+    },
     profilePic:{
         width: picDimensions,
         height: picDimensions,
