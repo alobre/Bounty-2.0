@@ -20,15 +20,26 @@ const CommentSection = ({navigation, route}) =>{
             </View>
             {bd.interactions.map(user => {
                 // current comment
+                const op_id = bd.user.uid;
                 const comment_id = user.comment_id.split(':');
                 if(comment_id.length == 2){
                     // check if comment has subcomments
                     const subcomment = bd.interactions.filter(u => {
                         const subcomment_id = u.comment_id.split(':');
-                        // console.log('length: ', subcomment_id.length, 'comment_id: ', comment_id[1], 'subcomment_id: ', subcomment_id[1])
+                        // console.log('length: ', *, 'comment_id: ', comment_id[1], 'subcomment_id: ', subcomment_id[1])
                         if(subcomment_id.length > 2 && comment_id[1] == subcomment_id[1]) return u
                     });
-                    return <Comment key={user.uid + user.time + user.date } username={user.username} rating={user.rating} profilePic={user.profilePic} comment={user.comment} />
+                    let isOP = false;
+                    if(op_id == user.uid) isOP = true;
+                    return <Comment 
+                    key={user.uid + user.time + user.date } 
+                    username={user.username} 
+                    rating={user.rating} 
+                    profilePic={user.profilePic} 
+                    comment={user.comment} 
+                    subcomment={subcomment} 
+                    op_id={op_id} 
+                    isOP={isOP} />
                 }
 
                 

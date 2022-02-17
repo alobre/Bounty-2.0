@@ -58,15 +58,25 @@ export default Home = ({navigation}) =>{
                 time: '12:54',
                 date: '16.02.2022'
             },
+            {
+                comment_id: '123:2:2',
+                profilePic: 'https://i.vimeocdn.com/portrait/58832_300x300.jpg',
+                username: 'Mark Mayer',
+                uid: '213zg4trh7',
+                rating: [5,3,5,5,5,4,5],
+                comment: 'Test',
+                time: '12:55',
+                date: '16.02.2022'
+            },
         ]
     }
     return(
         <ScrollView>
-            <BountyCard navigation={navigation} title={Task.title} description={Task.description} user={Task.user} tags={Task.tags} bounty={Task.bounty.price} currency={Task.bounty.currency} interactions={Task.interactions}/>
-            <BountyCard navigation={navigation} title={Task.title} description={Task.description} user={Task.user} tags={Task.tags} bounty={Task.bounty.price} currency={Task.bounty.currency} interactions={Task.interactions}/>
-            <BountyCard navigation={navigation} title={Task.title} description={Task.description} user={Task.user} tags={Task.tags} bounty={Task.bounty.price} currency={Task.bounty.currency} interactions={Task.interactions}/>
-            <BountyCard navigation={navigation} title={Task.title} description={Task.description} user={Task.user} tags={Task.tags} bounty={Task.bounty.price} currency={Task.bounty.currency} interactions={Task.interactions}/>
-            <BountyCard navigation={navigation} title='ALOBRE ALOBRE ALOBRE ALOBRE ALOBRE ALOBRE ALOBRE' description='alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre ' user={Task.user} tags={Task.tags} bounty={Task.bounty.price} currency={Task.bounty.currency} interactions={Task.interactions}/>
+            <BountyCard key={1} navigation={navigation} title={Task.title} description={Task.description} user={Task.user} tags={Task.tags} bounty={Task.bounty.price} currency={Task.bounty.currency} interactions={Task.interactions}/>
+            <BountyCard key={2} navigation={navigation} title={Task.title} description={Task.description} user={Task.user} tags={Task.tags} bounty={Task.bounty.price} currency={Task.bounty.currency} interactions={Task.interactions}/>
+            <BountyCard key={3} navigation={navigation} title={Task.title} description={Task.description} user={Task.user} tags={Task.tags} bounty={Task.bounty.price} currency={Task.bounty.currency} interactions={Task.interactions}/>
+            <BountyCard key={4} navigation={navigation} title={Task.title} description={Task.description} user={Task.user} tags={Task.tags} bounty={Task.bounty.price} currency={Task.bounty.currency} interactions={Task.interactions}/>
+            <BountyCard key={5} navigation={navigation} title='ALOBRE ALOBRE ALOBRE ALOBRE ALOBRE ALOBRE ALOBRE' description='alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre alobre ' user={Task.user} tags={Task.tags} bounty={Task.bounty.price} currency={Task.bounty.currency} interactions={Task.interactions}/>
         </ScrollView>
     )
 }

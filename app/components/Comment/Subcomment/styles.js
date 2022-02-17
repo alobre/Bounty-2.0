@@ -3,19 +3,23 @@ import fonts from 'app/global/variables/fonts';
 import colors from 'app/global/variables/colors';
 
 const { width, height } = Dimensions.get('window');
-const paddingHorizontal = width * 0.05
-const paddingVertical = height * 0.01
 
 const picDimensions = height * 0.08
 
 const styles = StyleSheet.create({
-    bountyCard:{
-        width: width,
+    comment:{
         backgroundColor: colors.white,
-        paddingHorizontal,
-        paddingVertical,
-        borderBottomWidth: 1,
-        borderBottomColor: 'rgba(0, 0, 0, 0.1)'
+        paddingVertical: 5,
+        paddingHorizontal: 15,
+        // borderBottomColor: colors.borderGrey,
+        // borderBottomWidth: 1,
+    },
+    textParent:{
+
+    },
+    text:{
+        fontSize: fonts.commentTextFontSize,
+        color: colors.black
     },
     profilePic:{
         width: picDimensions,
@@ -23,18 +27,6 @@ const styles = StyleSheet.create({
         borderRadius: picDimensions,
         borderColor: colors.black,
         borderWidth: 2,
-    },
-    titleWrap:{
-        flexDirection: 'row',
-        justifyContent: 'space-between'
-    },
-    title:{
-        color: colors.black,
-        fontSize: fonts.bountyCardTitleFontSize,
-    },
-    description:{
-        fontSize: fonts.bountyCardDescriptionFontSize,
-        color: colors.black,
     },
     profileWrapper:{
         flexDirection: 'row',
@@ -55,29 +47,6 @@ const styles = StyleSheet.create({
     },
     ratingLength:{
         marginLeft: 3
-    },
-    tagLocationWrapper:{
-        flexDirection: 'row',
-        alignItems: 'center',
-        width: '100%',
-        justifyContent: 'space-between'
-    },
-    tags:{
-    },
-    location:{
-        alignSelf: 'flex-end',
-    },
-    profileBountyWrapper:{
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center'
-    },
-    bounty:{
-
-    },
-    upperIcons:{
-        flexDirection: 'row',
-        marginTop: 5
     },
     nameStarWrapper:{
         flexDirection: 'row'

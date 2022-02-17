@@ -47,6 +47,13 @@ const styles = StyleSheet.create({
     },
     ratingLength:{
         marginLeft: 3
+    },
+    nameStarWrapper:{
+        flexDirection: 'row'
+    },
+    starIcon:{
+        alignSelf: 'center',
+        marginLeft: 3,
     }
 })
 export default styles;

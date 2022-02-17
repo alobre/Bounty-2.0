@@ -9,6 +9,8 @@ import Bounty from 'app/components/BountyCard/Bounty'
 import InteractionSection from 'app/components/BountyCard/InteractionSection';
 import Bookmark from 'app/components/BountyCard/Bookmark';
 import ThreeVerticalDots from 'app/components/BountyCard/ThreeVerticalDots';
+import Icon from 'react-native-vector-icons/Octicons';
+import colors from 'app/global/variables/colors'
 
 const CommentBountyCard = ({title, user, description, bounty, currency, image, tags, interactions}) =>{
     return(
@@ -30,7 +32,10 @@ const CommentBountyCard = ({title, user, description, bounty, currency, image, t
                     <View style={styles.profileWrapper}>
                         <ProfilePic uri='https://bilder.berchtesgadener-land.com/workspace/pixxio/tt.php?w=1600&q=80&dataPath=/pixxiodata/systems/bgl&src=/fileArchiv/tb/TbCqc1wa4Y2wVbKDSf__1535620105_5427100.jpg'/>
                         <View style={styles.usernameAndRating}>
-                            <Text style={styles.username}>{user.username}</Text>
+                            <View style={styles.nameStarWrapper}>
+                                <Text style={styles.username}>{user.username}</Text>
+                                <Icon style={styles.starIcon} name='star' color={colors.usernameBlue}/>
+                            </View>
                             <View style={styles.ratingWrapper}>
                                 <Text style={styles.rating}>{avg(user.rating)}</Text> 
                                 <Text style={styles.ratingLength}>({user.rating.length})</Text>

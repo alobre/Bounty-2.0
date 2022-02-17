@@ -18,7 +18,10 @@ const InteractionSection = ({navigation, bountyDetails}) =>{
                 <View style={styles.imageWrapper}>
                     {interactions.map((user, index) => {
                         if(index < 4){
-                            return(<Image style={[styles.image, {zIndex: -index}, index > 0 && styles.imagesBehindFirst]} key={user.username} source={{uri: uri}}/>)
+                            return(<Image 
+                                style={[styles.image, {zIndex: -index}, index > 0 && styles.imagesBehindFirst]} 
+                                key={user.uid + user.time + user.date + user.comment_id} 
+                                source={{uri: uri}}/>)
                         }
                     }
                     )}
