@@ -54,6 +54,14 @@ const styles = StyleSheet.create({
     starIcon:{
         alignSelf: 'center',
         marginLeft: 3,
+    },
+    profileCommentWrapper:{
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    reply:{
+        alignSelf: 'center',
+
     }
 })
 export default styles;
