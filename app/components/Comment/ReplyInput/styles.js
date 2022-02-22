@@ -4,13 +4,15 @@ import colors from 'app/global/variables/colors';
 
 const { width, height } = Dimensions.get('window');
 
-const picDimensions = height * 0.08
 
 const styles = StyleSheet.create({
     replyInputParent:{
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+    },
+    textInput:{
+        width: width * 0.85
     }
 })
 export default styles;

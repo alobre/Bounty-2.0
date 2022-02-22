@@ -8,7 +8,7 @@ const ReplyInput = ({replyMessage}) =>{
     
     return(
         <View style={styles.replyInputParent}>
-            <TextInput placeholder='Reply...' onChangeText={ text => {setText(text)}}/>
+            <TextInput style={styles.textInput} placeholder='Reply...' onChangeText={ text => {setText(text)}}/>
             <TouchableOpacity style={styles.sendButtonParent} onPress={()=>replyMessage(text)}>
                     <Icon size={20} name='send'/>
             </TouchableOpacity>

@@ -1,5 +1,5 @@
-import React, {useState, useCallback} from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import React, {useState, useCallback, useRef, useEffect} from 'react';
+import { View, Text, TouchableOpacity, Animated, Easing } from 'react-native';
 import styles from './styles';
 import ProfilePic from 'app/components/BountyCard/ProfilePic';
 import avg from 'app/global/functions/avg';
@@ -7,6 +7,15 @@ import Subcomment from 'app/components/Comment/Subcomment'
 import Icon from 'react-native-vector-icons/Octicons'
 import colors from 'app/global/variables/colors'
 import ReplyInput from './ReplyInput';
+import { Transition, Transitioning } from 'react-native-reanimated';
+
+const transition = (
+    <Transition.Together>
+        <Transition.In type="fade" durationMs={1000}/>
+        <Transition.Change />
+        <Transition.Out type="fade" durationMs={1000}/>
+    </Transition.Together>
+) 
 
 const Comment = ({username, rating, profilePic, comment, subcomment, op_id, isOP}) =>{
     const auth = true;
@@ -16,6 +25,26 @@ const Comment = ({username, rating, profilePic, comment, subcomment, op_id, isOP
         console.log(reply);
         setOpenReplyInput(false);
     }, [])
+    const ref = useRef();
+
+    const fadeAnim = useRef(new Animated.Value(0)).current
+    useEffect(()=>{
+        console.log(openReplyInput)
+        openReplyInput ? 
+        Animated.timing(fadeAnim, {
+            toValue: 50,
+            duration: 500,
+            easing: Easing.linear,
+            useNativeDriver: false
+          }).start()
+        :
+        Animated.timing(fadeAnim, {
+            toValue: 0,
+            duration: 500,
+            easing: Easing.linear,
+            useNativeDriver: false
+          }).start()
+    },[openReplyInput])
     return(
     <View style={styles.comment}>
         <View style={styles.profileCommentWrapper}>
@@ -39,13 +68,20 @@ const Comment = ({username, rating, profilePic, comment, subcomment, op_id, isOP
             </View>
             {
             auth && 
-            <TouchableOpacity style={styles.reply} onPress={()=>setOpenReplyInput(!openReplyInput)}>
+            <TouchableOpacity style={styles.reply} onPress={()=>{setOpenReplyInput(!openReplyInput)}}>
                 <Icon name='reply' size={20} color={colors.black}/>
             </TouchableOpacity>
             }
         </View>
         {
-            openReplyInput && <ReplyInput replyMessage={callback}/>
+            openReplyInput && 
+            <Animated.View
+            transition={transition}
+            ref={ref}
+            style={{height: fadeAnim}}
+            >
+                <ReplyInput replyMessage={callback}/>
+            </Animated.View>
         }
         {
             subcomment && subcomment.map(sc => 
