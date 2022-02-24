@@ -22,25 +22,24 @@ const Comment = ({username, rating, profilePic, comment, subcomment, op_id, isOP
     const [openReplyInput, setOpenReplyInput] = useState(false)
     // Implement Reply
     const callback = useCallback((reply) =>{
-        console.log(reply);
+        // console.log(reply);
         setOpenReplyInput(false);
     }, [])
     const ref = useRef();
 
     const fadeAnim = useRef(new Animated.Value(0)).current
     useEffect(()=>{
-        console.log(openReplyInput)
         openReplyInput ? 
         Animated.timing(fadeAnim, {
             toValue: 50,
-            duration: 500,
+            duration: 200,
             easing: Easing.linear,
             useNativeDriver: false
           }).start()
         :
         Animated.timing(fadeAnim, {
             toValue: 0,
-            duration: 500,
+            duration: 200,
             easing: Easing.linear,
             useNativeDriver: false
           }).start()
@@ -78,7 +77,7 @@ const Comment = ({username, rating, profilePic, comment, subcomment, op_id, isOP
             <Animated.View
             transition={transition}
             ref={ref}
-            style={{height: fadeAnim}}
+            style={[{height: fadeAnim}]}
             >
                 <ReplyInput replyMessage={callback}/>
             </Animated.View>

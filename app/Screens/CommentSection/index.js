@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import CommentBountyCard from 'app/components/CommentBountyCard';
 import Comment from 'app/components/Comment';
 import Input from 'app/components/TextInput';
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import styles from './styles';
 
-const CommentSection = ({navigation, route}) =>{
-    const [bd, setBountyDetails] = useState(route.params.bountyDetails)
+const CommentSection = ({navigation, route, params}) =>{
+    const [bd, setBountyDetails] = useState(params)
     const [placeholderText, setPlaceholderText] = useState('Kommentieren...')
     return(
-        <View>
+        <ScrollView>
             <CommentBountyCard title={bd.title} user={bd.user} description={bd.description} bounty={bd.bounty} currency={bd.currency} image={bd.image} tags={bd.tags} interactions={bd.interactions}/>
             <View style={styles.textInputButtonWrap}>
                 <Input placeholder={placeholderText}/>
@@ -44,7 +44,7 @@ const CommentSection = ({navigation, route}) =>{
 
                 
             })}
-        </View>
+        </ScrollView>
     )
 }
 export default CommentSection;

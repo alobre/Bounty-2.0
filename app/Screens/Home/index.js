@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef, useMemo, useState } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import BountyCard from 'app/components/BountyCard';
+
 export default Home = ({navigation}) =>{
     const Task = {
         title: 'Einkaufen gehen',

@@ -42,7 +42,12 @@ const styles = StyleSheet.create({
         backgroundColor: colors.limeGreen,
         borderRadius: 50,
         padding: 5,
-        
-    }
+    },
+    card: {
+        backgroundColor: "#fff",
+        height: height * 0.9,
+        justifyContent: "center",
+        alignItems: "center",
+      }
 })
 export default styles;
