@@ -49,7 +49,7 @@ const Comment = ({username, rating, profilePic, comment, subcomment, op_id, isOP
         <View style={styles.profileCommentWrapper}>
             <View>
                 <View style={styles.profileWrapper}>
-                    <ProfilePic size={30} uri='https://bilder.berchtesgadener-land.com/workspace/pixxio/tt.php?w=1600&q=80&dataPath=/pixxiodata/systems/bgl&src=/fileArchiv/tb/TbCqc1wa4Y2wVbKDSf__1535620105_5427100.jpg'/>
+                    <ProfilePic size={30} uri='https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'/>
                     <View style={styles.usernameAndRating}>
                         <View style={styles.nameStarWrapper}>
                             <Text style={styles.username}>{username}</Text>

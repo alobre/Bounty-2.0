@@ -6,6 +6,8 @@ const colors = {
     neonGreen: '#00FF19',
     limeGreen: '#7BFE88',
     tagGrey: 'rgba(87, 87, 87, 0.2)',
-    borderGrey: 'rgba(0, 0, 0, 0.1)'
+    modalGreyBackground: 'rgba(87, 87, 87, 0.6)',
+    borderGrey: 'rgba(0, 0, 0, 0.1)',
+    grey: '#4c4c4c'
 }
 export default colors;

@@ -48,6 +48,12 @@ const styles = StyleSheet.create({
         height: height * 0.9,
         justifyContent: "center",
         alignItems: "center",
+      },
+      bottomSheet:{
+          borderRadius: 10,
+          borderWidth: 1,
+          borderColor: colors.black,
+          backgroundColor: 'red'
       }
 })
 export default styles;

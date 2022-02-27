@@ -6,7 +6,6 @@ import ProfilePic from 'app/components/BountyCard/ProfilePic';
 import Tags from 'app/components/BountyCard/Tags';
 import Location from 'app/components/BountyCard/Location'
 import Bounty from 'app/components/BountyCard/Bounty'
-import InteractionSection from 'app/components/BountyCard/InteractionSection';
 import Bookmark from 'app/components/BountyCard/Bookmark';
 import ThreeVerticalDots from 'app/components/BountyCard/ThreeVerticalDots';
 import Icon from 'react-native-vector-icons/Octicons';

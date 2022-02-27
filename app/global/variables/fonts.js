@@ -7,8 +7,16 @@ const fonts = StyleSheet.create({
 
     usernameFontSize: 16,
 
+    modalBountyCardTitleFontSize: 24 - 2,
+
+    modalBountyCardDescriptionFontSize: 16 - 2,
+
+    modalUsernameFontSize: 16 - 2,
+
     interactionsLengthFontSize: 18,
 
-    commentTextFontSize: 16
+    commentTextFontSize: 16,
+
+    modalTitleFontSize: 22
 })
 export default fonts;
