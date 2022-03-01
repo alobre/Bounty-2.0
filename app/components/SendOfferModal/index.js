@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { View, Text, Modal, TextInput } from 'react-native'
+import { View, Text, Modal, TextInput, Button, TouchableOpacity } from 'react-native'
 import styles from './styles'
 import ModalBountyCard from './ModalBountyCard'
 
@@ -13,6 +13,13 @@ const SendOfferModal = ({visible, modalCallback, bountyDetails, modalTitle}) =>{
     const currentBounty = bountyDetails.bounty;
     const [wantedBounty, setWantedBounty] = useState(currentBounty)
     const [message, setMessage] = useState(null);
+
+    const submit = () => {
+        console.log({message, wantedBounty})
+    }
+    const setInitialBounty = () =>{
+        if(wantedBounty == '') setWantedBounty(currentBounty);
+    }
     return(
         <Modal
         style={styles.modal}
@@ -35,20 +42,24 @@ const SendOfferModal = ({visible, modalCallback, bountyDetails, modalTitle}) =>{
                     <View style={styles.textInputWrapper}>
                         <TextInput 
                         keyboardType="numeric"
-                        // placeholder={currentBounty.toString()} 
+                        placeholder={currentBounty.toString()} 
                         value={wantedBounty.toString()}
                         onChangeText={setWantedBounty}
                         style={styles.bountyInput}
+                        onEndEditing={setInitialBounty}
                         />
                         <TextInput 
-                        // placeholder={currentBounty.toString()} 
                         placeholder='Nachricht...'
                         onChangeText={setMessage}
                         multiline
                         numberOfLines={3}
                         style={styles.messageInput}
                         />
+                        <TouchableOpacity onPress={submit} style={styles.submitButton}>
+                            <Text style={styles.submitButtonText}>Absenden</Text>
+                        </TouchableOpacity>
                     </View>
+                   
                 </View>
             </View>
         </Modal>

@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         backgroundColor: 'blue',
         height: '100%',
-        width: '100%'
+        width: '100%',
     },
     parent: {
         // height: modalHeight,
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         alignContent: 'center',
-        backgroundColor: colors.modalGreyBackground
+        backgroundColor: colors.modalGreyBackground,
     },
     modalContent:{
         // height: modalHeight,
@@ -39,21 +39,34 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         paddingHorizontal: modalPadding,
         paddingVertical: modalPadding,
+        borderRadius: borderRadius,
     },
     modalTitle:{
         fontSize: fonts.modalTitleFontSize,
         color: colors.black,
+        marginBottom: height * 0.02
     },
     textInputWrapper:{
         borderWidth: 1,
         borderColor: 'rgba(0, 0, 0, 0.1)',
         borderRadius: borderRadius,
+        marginTop: height * 0.02
     },
     bountyInput:{
-        // width: '100%',
-        // backgroundColor: 'red'
+        fontSize: fonts.bountyInputFontSize,
         borderBottomColor: 'rgba(0, 0, 0, 0.1)',
         borderBottomWidth: 1,
+    },
+    submitButton:{
+        padding: 10,
+        backgroundColor: colors.limeGreen,
+        borderBottomEndRadius: borderRadius,
+        borderBottomStartRadius: borderRadius,
+        alignItems: 'center',
+    },
+    submitButtonText:{
+        fontSize: fonts.submitButtonFontSize,
+        color: colors.black
     }
 })
 export default styles;

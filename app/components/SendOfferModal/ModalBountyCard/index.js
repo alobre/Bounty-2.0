@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useCallback} from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import styles from './styles';
 import avg from 'app/global/functions/avg';
@@ -12,6 +12,24 @@ import Icon from 'react-native-vector-icons/Octicons';
 import colors from 'app/global/variables/colors'
 
 const CommentBountyCard = ({title, user, description, bounty, currency, image, tags, interactions}) =>{
+    const [numOfLines, setNumOfLines] = useState(4);
+    const [showMore, setShowMore] = useState(false);
+    const [showMoreActive, setShowMoreActive] = useState(false)
+    const [descriptonNumOfLines, setDescriptionNumOfLines] = useState(0)
+
+    const onTextLayout = useCallback(e => {
+        setShowMore(e.nativeEvent.lines.length > numOfLines);
+        setDescriptionNumOfLines(e.nativeEvent.lines.length);
+      }, []);
+    const showMoreText = () =>{
+        setNumOfLines(descriptonNumOfLines);
+        setShowMoreActive(true)
+    }
+    const showLessText = () =>{
+        setNumOfLines(4);
+        setShowMoreActive(false)
+    }
+   
     return(
     <ScrollView>
         <View style={styles.bountyCard}>
@@ -46,7 +64,9 @@ const CommentBountyCard = ({title, user, description, bounty, currency, image, t
                     {/* <Bounty style={styles.bounty} currency={currency} bounty={bounty} size={24}/> */}
                 </View>
                 <View>
-                <Text style={styles.description}>{description}</Text>
+                <Text style={styles.description} numberOfLines={numOfLines} onTextLayout={onTextLayout}>{description}</Text>
+                {!showMoreActive && showMore && <Text onPress={showMoreText}>Show More</Text>}
+               {showMoreActive && <Text onPress={showLessText}>Show Less</Text>}
                 </View>
             </View>
         </View>

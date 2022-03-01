@@ -17,6 +17,10 @@ const fonts = StyleSheet.create({
 
     commentTextFontSize: 16,
 
-    modalTitleFontSize: 22
+    modalTitleFontSize: 22,
+
+    bountyInputFontSize: 20,
+
+    submitButtonFontSize: 20,
 })
 export default fonts;
