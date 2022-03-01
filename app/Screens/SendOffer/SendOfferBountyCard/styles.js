@@ -12,13 +12,12 @@ const borderRadius = width * 0.05;
 
 const styles = StyleSheet.create({
     bountyCard:{
-        // width: width,
         backgroundColor: colors.white,
         paddingHorizontal,
         paddingVertical,
         borderWidth: 1,
         borderRadius: borderRadius,
-        borderColor: 'rgba(0, 0, 0, 0.1)'
+        borderColor: 'rgba(0, 0, 0, 0.1)',
     },
     profilePic:{
         width: picDimensions,

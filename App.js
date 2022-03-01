@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './app/Screens/Home';
 import CommentSection from './app/Screens/CommentSection';
 import NavigationHeader from './app/global/headers/NavigationHeader';
+import SendOffer from './app/Screens/SendOffer';
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +33,14 @@ export default function App() {
           headerTitle: 'Home',
           // animationTypeForReplace: 'push',
           animation: 'slide_from_bottom'
+        }}
+        />
+        <Stack.Screen 
+        name="SendOffer" 
+        component={SendOffer} 
+        options={{
+          headerTitle: 'Home',
+          animation: 'slide_from_right'
         }}
         />
       </Stack.Navigator>

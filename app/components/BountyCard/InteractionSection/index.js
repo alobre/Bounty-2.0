@@ -6,14 +6,11 @@ import colors from 'app/global/variables/colors';
 import Handshake from 'app/assets/fonts/handshake';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import CommentSection from 'app/Screens/CommentSection';
-import SendOfferModal from '../../SendOfferModal';
 
 const InteractionSection = ({navigation, bountyDetails}) => {
   const uri =
     'https://bilder.berchtesgadener-land.com/workspace/pixxio/tt.php?w=1600&q=80&dataPath=/pixxiodata/systems/bgl&src=/fileArchiv/tb/TbCqc1wa4Y2wVbKDSf__1535620105_5427100.jpg';
   const [interactions, setInteraction] = useState(bountyDetails.interactions);
-  const [visible, setVisible] = useState(false);
-  const [openSendOfferModal, setOpenSendOfferModal] = useState(false);
   const toggle = () => {
     refRBSheet.current.open();
   };
@@ -48,10 +45,12 @@ const InteractionSection = ({navigation, bountyDetails}) => {
         </View>
         <Text style={styles.interactionsLength}>{interactions.length}</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={()=>{setOpenSendOfferModal(!openSendOfferModal); console.log(openSendOfferModal)}} style={styles.handshakeIconButton}>
+      <TouchableOpacity onPress={()=>{
+        // setOpenSendOfferModal(!openSendOfferModal); console.log(openSendOfferModal)
+        navigation.navigate('SendOffer', {bountyDetails})
+        }} style={styles.handshakeIconButton}>
         <Handshake size="30" />
       </TouchableOpacity>
-      <SendOfferModal visible={openSendOfferModal} modalCallback={modalCallback} bountyDetails={bountyDetails}/>
       {/* BOTTOM SHEET */}
 
       <RBSheet
