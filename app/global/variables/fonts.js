@@ -22,5 +22,7 @@ const fonts = StyleSheet.create({
     bountyInputFontSize: 20,
 
     submitButtonFontSize: 20,
+
+    messageScreenFontSize: 18,
 })
 export default fonts;

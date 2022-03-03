@@ -8,6 +8,7 @@ const colors = {
     tagGrey: 'rgba(87, 87, 87, 0.2)',
     modalGreyBackground: 'rgba(87, 87, 87, 0.6)',
     borderGrey: 'rgba(0, 0, 0, 0.1)',
-    grey: '#4c4c4c'
+    grey: '#4c4c4c',
+    lightGrey: '#777777'
 }
 export default colors;

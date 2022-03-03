@@ -1,49 +1,80 @@
 import * as React from 'react';
-import { View, Text } from 'react-native'
-import { NavigationContainer, StackActions } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {View, Text} from 'react-native';
+import {NavigationContainer, StackActions} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from './app/Screens/Home';
 import CommentSection from './app/Screens/CommentSection';
+import MessageScreen from './app/Screens/MessageScreen';
 import NavigationHeader from './app/global/headers/NavigationHeader';
 import SendOffer from './app/Screens/SendOffer';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Stack = createNativeStackNavigator();
 
-export default function App() {
+const HomeStack = createNativeStackNavigator();
+
+const HomeStackScreen = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home" 
-      screenOptions={{
-            // header: AppBar,
-            // headerShown: false,
-          }}
-          >
-        <Stack.Screen 
-        name="Home" 
+    <HomeStack.Navigator initialRouteName="Home">
+      <HomeStack.Screen
+        name="HomeScreen"
         component={Home}
         options={{
           // header: AppBar,
           headerShown: false,
         }}
-        />
-        <Stack.Screen 
-        name="CommentSection" 
-        component={CommentSection} 
+      />
+      <HomeStack.Screen
+        name="CommentSection"
+        component={CommentSection}
         options={{
           headerTitle: 'Home',
           // animationTypeForReplace: 'push',
-          animation: 'slide_from_bottom'
+          animation: 'slide_from_bottom',
         }}
-        />
-        <Stack.Screen 
-        name="SendOffer" 
-        component={SendOffer} 
+      />
+      <HomeStack.Screen
+        name="SendOffer"
+        component={SendOffer}
         options={{
           headerTitle: 'Home',
-          animation: 'slide_from_right'
+          animation: 'slide_from_right',
+        }}
+      />
+    </HomeStack.Navigator>
+  );
+};
+
+const Tab = createBottomTabNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator initialRouteName="Home">
+        <Tab.Screen
+        name="Home"
+        component={HomeStackScreen}
+        options={{
+          headerShown: false,
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ color }) => (
+            <Icon name="home" color={color} size={26} />
+          ),
         }}
         />
-      </Stack.Navigator>
+        <Tab.Screen
+        name="Messages"
+        component={MessageScreen}
+        options={{
+          headerShown: false,
+          tabBarLabel: 'Messages',
+          tabBarIcon: ({ color }) => (
+            <Icon name="chat" color={color} size={26} />
+          ),
+        }}
+        />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
