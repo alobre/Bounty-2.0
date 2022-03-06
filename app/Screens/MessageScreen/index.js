@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text, SafeAreaView, FlatList, TouchableOpacity } from 'react-native'
 import styles from './styles'
 import ProfilePic from 'app/components/BountyCard/ProfilePic'
+import moment from 'moment'
 
 const data = [
     {
@@ -15,7 +16,7 @@ const data = [
         lastMessage: {
             message: "Gut, bin am Weg!",
             time: '15:22',
-            date: '12.03.2022'
+            date: '4.03.2022'
         },
     },
     {
@@ -233,8 +234,17 @@ const data = [
 ]
 
 const ConversationComponent = ({item}) =>{
+    const isOlder = () =>{
+        const today = moment(new Date()).format('DD.MM.YYYY');
+        return moment(item.lastMessage.date).isBefore(today);
+    }
+    const openChat = () =>{
+        // const today = moment(new Date()).format('DD.MM.YYYY');
+        // console.log(item.lastMessage.date, today)
+        // console.log(moment(item.lastMessage.date).format('DD.MM.YYYY'))
+    }
     return(
-    <TouchableOpacity style={styles.conversationParent}>
+    <TouchableOpacity onPress={openChat} style={styles.conversationParent}>
         <View style={styles.profilePicMessageUsernameWrapper}>
             <View style={styles.user}>
                 <ProfilePic uri={item.user.profilePic} size={50}/>
@@ -245,7 +255,10 @@ const ConversationComponent = ({item}) =>{
             </View>
         </View>
         <View style={styles.time}>
-            <Text>{item.lastMessage.time}</Text>
+            <Text>
+                
+                {isOlder() ? item.lastMessage.date : item.lastMessage.time}
+            </Text>
         </View>
     </TouchableOpacity>
     )
