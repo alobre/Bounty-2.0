@@ -24,5 +24,7 @@ const fonts = StyleSheet.create({
     submitButtonFontSize: 20,
 
     messageScreenFontSize: 18,
+
+    ChatScreenHeaderUsernameFontSize: 20,
 })
 export default fonts;

@@ -5,10 +5,12 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from './app/Screens/Home';
 import CommentSection from './app/Screens/CommentSection';
 import MessageScreen from './app/Screens/MessageScreen';
+import ChatScreen from './app/Screens/ChatScreen';
 import NavigationHeader from './app/global/headers/NavigationHeader';
 import SendOffer from './app/Screens/SendOffer';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import ChatScreenHeader from './app/Screens/ChatScreen/ChatScreenHeader';
 
 const Stack = createNativeStackNavigator();
 
@@ -42,7 +44,41 @@ const HomeStackScreen = () => {
           animation: 'slide_from_right',
         }}
       />
+      <HomeStack.Screen
+        name="ChatScreen"
+        component={ChatScreen}
+        options={{
+          headerTitle: 'Messages',
+          animation: 'slide_from_right',
+        }}
+      />
     </HomeStack.Navigator>
+  );
+};
+
+const MessageStack = createNativeStackNavigator();
+
+const MessageStackScreen = () => {
+  return (
+    <MessageStack.Navigator>
+      <MessageStack.Screen
+        name="MessageScreen"
+        component={MessageScreen}
+        options={{
+          headerTitle: 'Messages',
+          animation: 'slide_from_right',
+        }}
+      />
+      <MessageStack.Screen
+        name="ChatScreen"
+        component={ChatScreen}
+        options={{
+          headerTitle: 'Messages',
+          headerShown: false,
+          animation: 'slide_from_right',
+        }}
+      />
+    </MessageStack.Navigator>
   );
 };
 
@@ -65,7 +101,7 @@ export default function App() {
         />
         <Tab.Screen
         name="Messages"
-        component={MessageScreen}
+        component={MessageStackScreen}
         options={{
           headerShown: false,
           tabBarLabel: 'Messages',

@@ -233,15 +233,13 @@ const data = [
 
 ]
 
-const ConversationComponent = ({item}) =>{
+const ConversationComponent = ({item, navigation}) =>{
     const isOlder = () =>{
         const today = moment(new Date()).format('DD.MM.YYYY');
         return moment(item.lastMessage.date).isBefore(today);
     }
     const openChat = () =>{
-        // const today = moment(new Date()).format('DD.MM.YYYY');
-        // console.log(item.lastMessage.date, today)
-        // console.log(moment(item.lastMessage.date).format('DD.MM.YYYY'))
+        navigation.navigate('ChatScreen', {'data': item})
     }
     return(
     <TouchableOpacity onPress={openChat} style={styles.conversationParent}>
@@ -256,7 +254,6 @@ const ConversationComponent = ({item}) =>{
         </View>
         <View style={styles.time}>
             <Text>
-                
                 {isOlder() ? item.lastMessage.date : item.lastMessage.time}
             </Text>
         </View>
@@ -266,7 +263,7 @@ const ConversationComponent = ({item}) =>{
 
 const MessageScreen = ({navigation}) =>{
     const renderItem = ({ item }) => (
-        <ConversationComponent item={item} />
+        <ConversationComponent item={item} navigation={navigation} />
       );
     return(
     <SafeAreaView
