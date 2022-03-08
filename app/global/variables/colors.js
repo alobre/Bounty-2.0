@@ -9,6 +9,8 @@ const colors = {
     modalGreyBackground: 'rgba(87, 87, 87, 0.6)',
     borderGrey: 'rgba(0, 0, 0, 0.1)',
     grey: '#4c4c4c',
-    lightGrey: '#777777'
+    lightGrey: '#777777',
+    messageBubbleBlue: '#3ac9f4',
+    messageBubbleGrey: 'rgba(0, 0, 0, 0.1)'
 }
 export default colors;

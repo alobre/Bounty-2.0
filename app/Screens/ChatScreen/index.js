@@ -3,6 +3,7 @@ import { View, Text, ScrollView } from 'react-native'
 import styles from './styles'
 import moment from 'moment'
 import ChatScreenHeader from './ChatScreenHeader'
+import Messages from './Messages'
 
 const ChatScreen = ({navigation, route}) => {
     //This will be fetched by conversation_id
@@ -15,11 +16,16 @@ const ChatScreen = ({navigation, route}) => {
         {
             dateTime: moment.utc().format('DD.MM.YYYY HH:mm:ss'),
             msg: 'Super! kannst du es heute noch erledigen?',
-            author_id: 'asd'
+            author_id: '123456'
         },
         {
             dateTime: moment.utc().format('DD.MM.YYYY HH:mm:ss'),
-            msg: 'Habe erst um 15:00 Zeit aber um 16:00 könnte ich bei dir sein. Wo wohnst du genau?',
+            msg: 'Habe erst um 15:00 Zeit aber um 16:00 könnte ich bei dir sein.',
+            author_id: '213zg4trh7'
+        },
+        {
+            dateTime: moment.utc().format('DD.MM.YYYY HH:mm:ss'),
+            msg: 'Wo wohnst du genau?',
             author_id: '213zg4trh7'
         },
     ]
@@ -33,9 +39,10 @@ const ChatScreen = ({navigation, route}) => {
 
             </View>
                 {/* Messages */}
-            <ScrollView>
-
-            </ScrollView>
+                
+            {/* <ScrollView> */}
+                <Messages chatMessages={chatMessages}/>
+            {/* </ScrollView> */}
         </View>
     )
 }
