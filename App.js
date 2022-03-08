@@ -108,6 +108,7 @@ export default function App() {
           tabBarIcon: ({ color }) => (
             <Icon name="chat" color={color} size={26} />
           ),
+          // tabBarStyle: { display: "none" }
         }}
         />
       </Tab.Navigator>

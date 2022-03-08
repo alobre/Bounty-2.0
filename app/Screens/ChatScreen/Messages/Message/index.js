@@ -4,6 +4,7 @@ import styles from './styles'
 import colors from 'app/global/variables/colors'
 
 const Message = ({message, isYourMsg, nextMessageSameAuthor}) =>{
+    console.log({message, isYourMsg, nextMessageSameAuthor})
     return(
         <View style={styles.parent}>
             <View style={[
@@ -11,7 +12,7 @@ const Message = ({message, isYourMsg, nextMessageSameAuthor}) =>{
             isYourMsg == true ? styles.messageBubbleRight : styles.messageBubbleLeft,
             nextMessageSameAuthor && styles.nextMessageSameAuthor
             ]}>
-                <Text style={styles.textMessage}>{message.msg}</Text>
+                <Text style={styles.textMessage}>{message}</Text>
             </View>
         </View>
     )

@@ -9,6 +9,6 @@ const styles = StyleSheet.create({
     messagesParent:{
         backgroundColor: colors.white,
         height: '100%',
-    }
+    },
 })
 export default styles;

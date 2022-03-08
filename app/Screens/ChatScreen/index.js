@@ -26,23 +26,20 @@ const ChatScreen = ({navigation, route}) => {
         {
             dateTime: moment.utc().format('DD.MM.YYYY HH:mm:ss'),
             msg: 'Wo wohnst du genau?',
-            author_id: '213zg4trh7'
+            author_id: '213zg4trh7',
         },
     ]
     const data = route.params.data;
     console.log({data})
     return(
-            <View>
+        <View>
                 {/* Header */}
-                <ChatScreenHeader profilePic={data.user.profilePic} username={data.user.username} uid={data.user.uid} navigation={navigation}/>
-            <View>
-
-            </View>
+            <ChatScreenHeader profilePic={data.user.profilePic} username={data.user.username} uid={data.user.uid} navigation={navigation}/>
                 {/* Messages */}
                 
-            {/* <ScrollView> */}
+            <View style={styles.messageBody}>
                 <Messages chatMessages={chatMessages}/>
-            {/* </ScrollView> */}
+            </View>
         </View>
     )
 }
