@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { View, Text, ScrollView, SafeAreaView, FlatList } from 'react-native'
 import styles from './styles'
 import Message from './Message'
+import mergeSort from 'app/global/functions/sortByDate'
+import moment from 'moment'
 
 const Messages = ({chatMessages}) =>{
     const isYou = (msg) =>{
@@ -12,7 +14,8 @@ const Messages = ({chatMessages}) =>{
             return false
         }
     }
-    const [chatReady, setChatReady] = useState(false)
+    // const [chatReady, setChatReady] = useState(false) //Maybe not neccessary anymore
+    const [messages, setMessages] = useState(false)
     useEffect(()=>{
         for (let i = 0; i < chatMessages.length; i++) {
             const current = chatMessages[i];
@@ -24,7 +27,8 @@ const Messages = ({chatMessages}) =>{
             else chatMessages[i].nextMessageSameAuthor = false
             chatMessages[i].isYou = isYou(chatMessages[i])
         }
-        setChatReady(true)
+        if(!messages) setMessages(mergeSort(chatMessages))
+        // setChatReady(true)
     },[])
     
     const renderItem = ({ item }) => {
@@ -33,16 +37,9 @@ const Messages = ({chatMessages}) =>{
         )
     }
     return(
-        // <ScrollView style={styles.messagesParent}>
-        //     {
-        //         chatMessages.map(msg =>{
-        //             return <Message message={msg} isYourMsg={isYou(msg)} nextMessageSameAuthor={msg.nextMessageSameAuthor} key={msg.dateTime+msg.msg}/>
-        //         })
-        //     }
-        // </ScrollView>
         <SafeAreaView style={styles.messagesParent} >
             <FlatList
-                data={chatReady && chatMessages}
+                data={messages && messages}
                 renderItem={renderItem}
                 keyExtractor={msg => msg.dateTime + msg.msg}
                 inverted

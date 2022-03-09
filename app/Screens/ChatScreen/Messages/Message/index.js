@@ -4,7 +4,6 @@ import styles from './styles'
 import colors from 'app/global/variables/colors'
 
 const Message = ({message, isYourMsg, nextMessageSameAuthor}) =>{
-    console.log({message, isYourMsg, nextMessageSameAuthor})
     return(
         <View style={styles.parent}>
             <View style={[

@@ -12,8 +12,6 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import ChatScreenHeader from './app/Screens/ChatScreen/ChatScreenHeader';
 
-const Stack = createNativeStackNavigator();
-
 const HomeStack = createNativeStackNavigator();
 
 const HomeStackScreen = () => {

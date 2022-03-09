@@ -22,7 +22,6 @@ const Comment = ({username, rating, profilePic, comment, subcomment, op_id, isOP
     const [openReplyInput, setOpenReplyInput] = useState(false)
     // Implement Reply
     const callback = useCallback((reply) =>{
-        // console.log(reply);
         setOpenReplyInput(false);
     }, [])
     const ref = useRef();

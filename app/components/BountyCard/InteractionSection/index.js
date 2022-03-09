@@ -46,7 +46,7 @@ const InteractionSection = ({navigation, bountyDetails}) => {
         <Text style={styles.interactionsLength}>{interactions.length}</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={()=>{
-        // setOpenSendOfferModal(!openSendOfferModal); console.log(openSendOfferModal)
+        // setOpenSendOfferModal(!openSendOfferModal);
         navigation.navigate('SendOffer', {bountyDetails})
         }} style={styles.handshakeIconButton}>
         <Handshake size="30" />
