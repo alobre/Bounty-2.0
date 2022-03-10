@@ -20,6 +20,9 @@ const styles = StyleSheet.create({
         color: colors.black,
         marginBottom: height * 0.02
     },
+    bountyCard:{
+        marginTop: height * 0.05
+    },
     textInputWrapper:{
         borderWidth: 1,
         borderColor: 'rgba(0, 0, 0, 0.1)',

@@ -4,10 +4,15 @@ import colors from 'app/global/variables/colors';
 
 const { width, height } = Dimensions.get('window');
 
-const chatHeight = height - 52
 const styles = StyleSheet.create({
     messagesParent:{
         backgroundColor: colors.white,
     },
+    chatTextInputParent:{
+        
+    },
+    flatList:{
+
+    }
 })
 export default styles;

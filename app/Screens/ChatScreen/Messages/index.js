@@ -3,7 +3,8 @@ import { View, Text, ScrollView, SafeAreaView, FlatList, Dimensions } from 'reac
 import styles from './styles'
 import Message from './Message'
 import mergeSort from 'app/global/functions/sortByDate'
-import moment from 'moment'
+import ChatTextInput from './TextInput'
+import { useKeyboard } from 'app/global/hooks/useKeyboard'
 
 const Messages = ({chatMessages, height}) =>{
     const isYou = (msg) =>{
@@ -15,7 +16,7 @@ const Messages = ({chatMessages, height}) =>{
         }
     }
     const [messages, setMessages] = useState(false)
-    useEffect(()=>{
+    const addMessageDetails = () =>{
         for (let i = 0; i < chatMessages.length; i++) {
             const current = chatMessages[i];
             let next = false;
@@ -26,22 +27,30 @@ const Messages = ({chatMessages, height}) =>{
             else chatMessages[i].nextMessageSameAuthor = false
             chatMessages[i].isYou = isYou(chatMessages[i])
         }
+    }
+    useEffect(()=>{
+        addMessageDetails()
         if(!messages) setMessages(mergeSort(chatMessages))
     },[])
-    
+
+    const keyboardHeight = useKeyboard();
+
     const renderItem = ({ item }) => {
         return(
             <Message message={item.msg} isYourMsg={item.isYou} nextMessageSameAuthor={item.nextMessageSameAuthor} />
         )
     }
     return(
-        <SafeAreaView style={[styles.messagesParent, {height: height}]} >
+        <SafeAreaView style={[styles.messagesParent, {height: height - keyboardHeight}]} >
             <FlatList
                 data={messages && messages}
                 renderItem={renderItem}
                 keyExtractor={msg => msg.dateTime + msg.msg}
                 inverted
             />
+            <View style={styles.chatTextInputParent}>
+                <ChatTextInput/>
+            </View>
         </SafeAreaView>
     )
 }
