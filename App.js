@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {View, Text} from 'react-native';
-import {NavigationContainer, StackActions} from '@react-navigation/native';
+import {NavigationContainer, StackActions, createNavigationContainerRef, useNavigationContainerRef  } from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from './app/Screens/Home';
 import CommentSection from './app/Screens/CommentSection';
@@ -13,7 +13,6 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import ChatScreenHeader from './app/Screens/ChatScreen/ChatScreenHeader';
 
 const HomeStack = createNativeStackNavigator();
-
 const HomeStackScreen = () => {
   return (
     <HomeStack.Navigator initialRouteName="Home">
@@ -85,7 +84,7 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator initialRouteName="Messages">
+      <Tab.Navigator initialRouteName="Home">
         <Tab.Screen
         name="Home"
         component={HomeStackScreen}
@@ -106,7 +105,6 @@ export default function App() {
           tabBarIcon: ({ color }) => (
             <Icon name="chat" color={color} size={26} />
           ),
-          // tabBarStyle: { display: "none" }
         }}
         />
       </Tab.Navigator>

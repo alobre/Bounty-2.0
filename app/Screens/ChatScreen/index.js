@@ -1,5 +1,5 @@
-import React from 'react'
-import { View, Text, ScrollView } from 'react-native'
+import React, {useCallback, useState, useEffect} from 'react'
+import { View, Text, ScrollView, Dimensions } from 'react-native'
 import styles from './styles'
 import moment from 'moment'
 import ChatScreenHeader from './ChatScreenHeader'
@@ -35,14 +35,30 @@ const ChatScreen = ({navigation, route}) => {
         },
     ]
     const data = route.params.data;
+
+    const { width, height } = Dimensions.get('window');
+    const headerHeight = height * 0.075
+    const chatScreenHeight = height - headerHeight
+
+    useEffect(() => {
+        navigation.getParent()?.setOptions({ tabBarStyle: { display: "none" }});
+        return () => navigation.getParent()?.setOptions({ tabBarStyle: undefined });
+      }, [navigation]);
+
     return(
         <View>
-                {/* Header */}
-            <ChatScreenHeader profilePic={data.user.profilePic} username={data.user.username} uid={data.user.uid} navigation={navigation}/>
-                {/* Messages */}
-                
+            {/* Header */}
+            <ChatScreenHeader
+            profilePic={data.user.profilePic}
+            username={data.user.username}
+            uid={data.user.uid}
+            navigation={navigation}
+            height={headerHeight}
+            />
+            
+            {/* Messages */} 
             <View style={styles.messageBody}>
-                <Messages chatMessages={chatMessages}/>
+                <Messages chatMessages={chatMessages} height={chatScreenHeight}/>
             </View>
         </View>
     )

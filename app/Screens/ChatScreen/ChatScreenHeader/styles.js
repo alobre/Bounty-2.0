@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingVertical: height * 0.005
+        // paddingVertical: height * 0.005
     },
     profilePicUsernameWrapper:{
         flexDirection: 'row',

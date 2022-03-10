@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, ScrollView, SafeAreaView, FlatList } from 'react-native'
+import { View, Text, ScrollView, SafeAreaView, FlatList, Dimensions } from 'react-native'
 import styles from './styles'
 import Message from './Message'
 import mergeSort from 'app/global/functions/sortByDate'
 import moment from 'moment'
 
-const Messages = ({chatMessages}) =>{
+const Messages = ({chatMessages, height}) =>{
     const isYou = (msg) =>{
         if(msg.author_id == '123456'){
             return true
@@ -14,7 +14,6 @@ const Messages = ({chatMessages}) =>{
             return false
         }
     }
-    // const [chatReady, setChatReady] = useState(false) //Maybe not neccessary anymore
     const [messages, setMessages] = useState(false)
     useEffect(()=>{
         for (let i = 0; i < chatMessages.length; i++) {
@@ -28,7 +27,6 @@ const Messages = ({chatMessages}) =>{
             chatMessages[i].isYou = isYou(chatMessages[i])
         }
         if(!messages) setMessages(mergeSort(chatMessages))
-        // setChatReady(true)
     },[])
     
     const renderItem = ({ item }) => {
@@ -37,7 +35,7 @@ const Messages = ({chatMessages}) =>{
         )
     }
     return(
-        <SafeAreaView style={styles.messagesParent} >
+        <SafeAreaView style={[styles.messagesParent, {height: height}]} >
             <FlatList
                 data={messages && messages}
                 renderItem={renderItem}
