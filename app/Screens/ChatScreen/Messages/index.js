@@ -16,34 +16,39 @@ const Messages = ({chatMessages, height}) =>{
         }
     }
     const [messages, setMessages] = useState(false)
-    const addMessageDetails = () =>{
-        for (let i = 0; i < chatMessages.length; i++) {
-            const current = chatMessages[i];
+    const [detailsAdded, setDetailsAdded] = useState(false)
+    const addMessageDetails = (messages) =>{
+        // next = next from array but the list gets inverted so technically next = previous
+        for (let i = messages.length - 1; i > 0; i--) {
+            const current = messages[i];
             let next = false;
-            if(i < chatMessages.length + 1){
-                next = chatMessages[i + 1]
+            if(i < messages.length){
+                next = messages[i - 1]
             }
-            if(next && current.author_id == next.author_id) chatMessages[i].nextMessageSameAuthor = true
-            else chatMessages[i].nextMessageSameAuthor = false
-            chatMessages[i].isYou = isYou(chatMessages[i])
+            if(next && current.author_id == next.author_id) messages[i].previousMessageSameAuthor = true
+            else messages[i].previousMessageSameAuthor = false
+            messages[i].isYou = isYou(messages[i])
         }
+        return messages;
     }
     useEffect(()=>{
-        addMessageDetails()
-        if(!messages) setMessages(mergeSort(chatMessages))
+        mergeSort(chatMessages, (sortedMessages) =>{
+            setMessages(addMessageDetails(sortedMessages));
+            setDetailsAdded(true)
+        })
     },[])
 
     const keyboardHeight = useKeyboard();
 
     const renderItem = ({ item }) => {
         return(
-            <Message message={item.msg} isYourMsg={item.isYou} nextMessageSameAuthor={item.nextMessageSameAuthor} />
+            <Message message={item.msg} isYourMsg={item.isYou} previousMessageSameAuthor={item.previousMessageSameAuthor} />
         )
     }
     return(
         <SafeAreaView style={[styles.messagesParent, {height: height - keyboardHeight}]} >
             <FlatList
-                data={messages && messages}
+                data={(messages && detailsAdded) && messages}
                 renderItem={renderItem}
                 keyExtractor={msg => msg.dateTime + msg.msg}
                 inverted

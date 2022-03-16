@@ -41,6 +41,11 @@ const ChatScreen = ({navigation, route}) => {
       msg: 'Ok',
       author_id: '213zg4trh7',
     },
+    {
+      dateTime: '2022-03-08T20:20:40Z',
+      msg: 'Wenn das für dich OK ist.',
+      author_id: '123456',
+    },
   ];
   const data = route.params.data;
 

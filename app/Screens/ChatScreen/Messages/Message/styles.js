@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     textMessage: {
         color: colors.black
     },
-    nextMessageSameAuthor:{
+    previousMessageSameAuthor:{
         marginBottom: width * 0.01,
         borderRadius: borderRadius
     }

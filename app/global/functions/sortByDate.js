@@ -10,7 +10,7 @@ const sortByDate = (array, order) =>{
     //         break;
     // }
 }
-function mergeSort(array) {
+function mergeSort(array, callback = null) {
     const half = array.length / 2
     
     // Base case or terminating case
@@ -19,7 +19,8 @@ function mergeSort(array) {
     }
     
     const left = array.splice(0, half)
-    return merge(mergeSort(left),mergeSort(array))
+    if(callback) callback(merge(mergeSort(left),mergeSort(array)))
+    else return merge(mergeSort(left),mergeSort(array))
   }
 
 function merge(left, right) {
