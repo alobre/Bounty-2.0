@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { View, Text, ScrollView, SafeAreaView, FlatList, Dimensions } from 'react-native'
 import styles from './styles'
 import Message from './Message'
 import mergeSort from 'app/global/functions/sortByDate'
-import ChatTextInput from './TextInput'
+import ChatTextInput from './ChatTextInput'
 import { useKeyboard } from 'app/global/hooks/useKeyboard'
 
 const Messages = ({chatMessages, height}) =>{
@@ -38,6 +38,10 @@ const Messages = ({chatMessages, height}) =>{
         })
     },[])
 
+    const sendMessageCallback = (message) => {
+        setMessages([message, ...messages])
+    }
+
     const keyboardHeight = useKeyboard();
 
     const renderItem = ({ item }) => {
@@ -52,9 +56,10 @@ const Messages = ({chatMessages, height}) =>{
                 renderItem={renderItem}
                 keyExtractor={msg => msg.dateTime + msg.msg}
                 inverted
+                style={styles.flatList}
             />
             <View style={styles.chatTextInputParent}>
-                <ChatTextInput/>
+                <ChatTextInput onSend={sendMessageCallback}/>
             </View>
         </SafeAreaView>
     )

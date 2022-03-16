@@ -15,6 +15,8 @@ const styles = StyleSheet.create({
         flexGrow: 10,
     },
     sendButton:{
+        alignSelf: 'flex-end',
+        marginBottom: height * 0.005,
     }
 })
 export default styles;

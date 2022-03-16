@@ -9,10 +9,8 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
     },
     chatTextInputParent:{
-        
     },
     flatList:{
-
     }
 })
 export default styles;

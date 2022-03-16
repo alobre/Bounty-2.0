@@ -52,6 +52,7 @@ const ChatScreen = ({navigation, route}) => {
   const {width, height} = Dimensions.get('window');
   const headerHeight = height * 0.075;
   const chatScreenHeight = height - headerHeight;
+  console.log({height, headerHeight, chatScreenHeight})
 
   useEffect(() => {
     navigation.getParent()?.setOptions({tabBarStyle: {display: 'none'}});
