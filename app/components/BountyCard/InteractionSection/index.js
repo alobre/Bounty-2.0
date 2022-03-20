@@ -1,4 +1,4 @@
-import React, {useState, useRef, useCallback} from 'react';
+import React, {useState, useRef, useCallback, useEffect} from 'react';
 import {View, Text, Image, TouchableOpacity, Dimensions} from 'react-native';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/Octicons';
@@ -11,10 +11,13 @@ const InteractionSection = ({navigation, bountyDetails}) => {
   const uri =
     'https://bilder.berchtesgadener-land.com/workspace/pixxio/tt.php?w=1600&q=80&dataPath=/pixxiodata/systems/bgl&src=/fileArchiv/tb/TbCqc1wa4Y2wVbKDSf__1535620105_5427100.jpg';
   const [interactions, setInteraction] = useState(bountyDetails.interactions);
-  const toggle = () => {
-    refRBSheet.current.open();
-  };
   const refRBSheet = useRef();
+  
+  const [openComments, setOpenComments] = useState(false)
+  useEffect(()=>{
+    openComments ? refRBSheet.current.open() : refRBSheet.current.close();
+  },[openComments])
+
   // const showComments = () => {
   //   navigation.navigate('CommentSection', {bountyDetails: bountyDetails});
   // };
@@ -24,7 +27,7 @@ const InteractionSection = ({navigation, bountyDetails}) => {
   const { width, height } = Dimensions.get('window');
   return (
     <View style={styles.InteractionSection}>
-      <TouchableOpacity onPress={toggle} style={styles.comments}>
+      <TouchableOpacity onPress={()=>setOpenComments(true)} style={styles.comments}>
         <Icon name="comment-discussion" size={30} color={colors.black}></Icon>
         <View style={styles.imageWrapper}>
           {interactions.map((user, index) => {
@@ -67,6 +70,7 @@ const InteractionSection = ({navigation, bountyDetails}) => {
           },
           draggableIcon: {
             backgroundColor: colors.grey,
+            marginBottom: 20
           },
           container:{
             // borderTopEndRadius: 20,
@@ -77,8 +81,7 @@ const InteractionSection = ({navigation, bountyDetails}) => {
           }
 
         }}>
-        <CommentSection params={bountyDetails} />
-        {/* <Text>Alobre</Text> */}
+        <CommentSection refRBSheet={refRBSheet} navigation={navigation} params={bountyDetails} />
       </RBSheet>
     </View>
   );

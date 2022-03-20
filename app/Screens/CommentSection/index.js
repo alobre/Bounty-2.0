@@ -11,7 +11,7 @@ const CommentSection = ({navigation, route, params}) =>{
     const [placeholderText, setPlaceholderText] = useState('Kommentieren...')
     return(
         <ScrollView>
-            <CommentBountyCard title={bd.title} user={bd.user} description={bd.description} bounty={bd.bounty} currency={bd.currency} image={bd.image} tags={bd.tags} interactions={bd.interactions}/>
+            <CommentBountyCard navigation={navigation} title={bd.title} user={bd.user} description={bd.description} bounty={bd.bounty} currency={bd.currency} image={bd.image} tags={bd.tags} interactions={bd.interactions}/>
             <View style={styles.textInputButtonWrap}>
                 <Input placeholder={placeholderText}/>
                 <TouchableOpacity style={styles.sendButtonParent}>
@@ -31,7 +31,8 @@ const CommentSection = ({navigation, route, params}) =>{
                     });
                     let isOP = false;
                     if(op_id == user.uid) isOP = true;
-                    return <Comment 
+                    return <Comment
+                    navigation={navigation}
                     key={user.uid + user.time + user.date } 
                     username={user.username} 
                     rating={user.rating} 
@@ -39,7 +40,8 @@ const CommentSection = ({navigation, route, params}) =>{
                     comment={user.comment} 
                     subcomment={subcomment} 
                     op_id={op_id} 
-                    isOP={isOP} />
+                    isOP={isOP} 
+                    />
                 }
 
                 

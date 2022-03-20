@@ -17,7 +17,7 @@ const transition = (
     </Transition.Together>
 ) 
 
-const Comment = ({username, rating, profilePic, comment, subcomment, op_id, isOP}) =>{
+const Comment = ({navigation, username, rating, profilePic, comment, subcomment, op_id, isOP, refRBSheet}) =>{
     const auth = true;
     const [openReplyInput, setOpenReplyInput] = useState(false)
     // Implement Reply
@@ -43,12 +43,19 @@ const Comment = ({username, rating, profilePic, comment, subcomment, op_id, isOP
             useNativeDriver: false
           }).start()
     },[openReplyInput])
+
+    const openProfile = () =>{
+        navigation.navigate('ProfileScreen')
+    }
+
     return(
     <View style={styles.comment}>
         <View style={styles.profileCommentWrapper}>
             <View>
                 <View style={styles.profileWrapper}>
-                    <ProfilePic size={30} uri='https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'/>
+                    <TouchableOpacity onPress={openProfile}>
+                        <ProfilePic size={30} uri='https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'/>
+                    </TouchableOpacity>
                     <View style={styles.usernameAndRating}>
                         <View style={styles.nameStarWrapper}>
                             <Text style={styles.username}>{username}</Text>
@@ -84,6 +91,7 @@ const Comment = ({username, rating, profilePic, comment, subcomment, op_id, isOP
         {
             subcomment && subcomment.map(sc => 
                 <Subcomment 
+                navigation={navigation}
                 username={sc.username} 
                 rating={sc.rating} 
                 profilePic={sc.profilePic} 

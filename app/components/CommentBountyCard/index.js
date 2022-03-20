@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import avg from 'app/global/functions/avg';
 import ProfilePic from 'app/components/BountyCard/ProfilePic';
@@ -11,7 +11,10 @@ import ThreeVerticalDots from 'app/components/BountyCard/ThreeVerticalDots';
 import Icon from 'react-native-vector-icons/Octicons';
 import colors from 'app/global/variables/colors'
 
-const CommentBountyCard = ({title, user, description, bounty, currency, image, tags, interactions}) =>{
+const CommentBountyCard = ({navigation, title, user, description, bounty, currency, image, tags, interactions}) =>{
+    const openProfile = () =>{
+        navigation.navigate('ProfileScreen')        
+    }
     return(
     <ScrollView>
         <View style={styles.bountyCard}>
@@ -29,7 +32,9 @@ const CommentBountyCard = ({title, user, description, bounty, currency, image, t
                 </View>
                 <View style={styles.profileBountyWrapper}>
                     <View style={styles.profileWrapper}>
-                        <ProfilePic uri='https://bilder.berchtesgadener-land.com/workspace/pixxio/tt.php?w=1600&q=80&dataPath=/pixxiodata/systems/bgl&src=/fileArchiv/tb/TbCqc1wa4Y2wVbKDSf__1535620105_5427100.jpg'/>
+                        <TouchableOpacity onPress={openProfile}>
+                            <ProfilePic uri='https://bilder.berchtesgadener-land.com/workspace/pixxio/tt.php?w=1600&q=80&dataPath=/pixxiodata/systems/bgl&src=/fileArchiv/tb/TbCqc1wa4Y2wVbKDSf__1535620105_5427100.jpg'/>
+                        </TouchableOpacity>
                         <View style={styles.usernameAndRating}>
                             <View style={styles.nameStarWrapper}>
                                 <Text style={styles.username}>{user.username}</Text>

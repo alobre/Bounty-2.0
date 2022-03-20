@@ -1,5 +1,5 @@
 import React, { useCallback, useState, setState } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import avg from 'app/global/functions/avg';
 import ProfilePic from './ProfilePic';
@@ -28,6 +28,9 @@ const BountyCard = ({navigation, title, user, description, bounty, currency, ima
         setNumOfLines(4);
         setShowMoreActive(false)
     }
+    const openProfile = () =>{
+        navigation.navigate('ProfileScreen')
+    }
 
     const [bountyDetails, setBountyDetails] = useState({
         title, user, description, bounty, currency, image, tags, interactions
@@ -48,7 +51,9 @@ const BountyCard = ({navigation, title, user, description, bounty, currency, ima
             </View>
             <View style={styles.profileBountyWrapper}>
                 <View style={styles.profileWrapper}>
-                    <ProfilePic uri='https://bilder.berchtesgadener-land.com/workspace/pixxio/tt.php?w=1600&q=80&dataPath=/pixxiodata/systems/bgl&src=/fileArchiv/tb/TbCqc1wa4Y2wVbKDSf__1535620105_5427100.jpg'/>
+                    <TouchableOpacity onPress={openProfile}>
+                    <   ProfilePic uri='https://bilder.berchtesgadener-land.com/workspace/pixxio/tt.php?w=1600&q=80&dataPath=/pixxiodata/systems/bgl&src=/fileArchiv/tb/TbCqc1wa4Y2wVbKDSf__1535620105_5427100.jpg'/>
+                    </TouchableOpacity>
                     <View style={styles.usernameAndRating}>
                         <Text style={styles.username}>{user.username}</Text>
                         <View style={styles.ratingWrapper}>

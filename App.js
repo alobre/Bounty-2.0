@@ -7,6 +7,7 @@ import CommentSection from './app/Screens/CommentSection';
 import MessageScreen from './app/Screens/MessageScreen';
 import ChatScreen from './app/Screens/ChatScreen';
 import NavigationHeader from './app/global/headers/NavigationHeader';
+import ProfileScreen from './app/Screens/ProfileScreen';
 import SendOffer from './app/Screens/SendOffer';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -49,6 +50,14 @@ const HomeStackScreen = () => {
           animation: 'slide_from_right',
         }}
       />
+      <HomeStack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{
+          headerTitle: 'Profile',
+          animation: 'slide_from_right',
+        }}
+      />
     </HomeStack.Navigator>
   );
 };
@@ -75,6 +84,14 @@ const MessageStackScreen = () => {
           animation: 'slide_from_right',
         }}
       />
+      <MessageStack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{
+          headerTitle: 'Profile',
+          animation: 'slide_from_right',
+        }}
+      />
     </MessageStack.Navigator>
   );
 };
@@ -84,7 +101,7 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator initialRouteName="Messages">
+      <Tab.Navigator initialRouteName="Home">
         <Tab.Screen
         name="Home"
         component={HomeStackScreen}

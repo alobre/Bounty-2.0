@@ -10,15 +10,18 @@ const ChatScreenHeader = ({profilePic, username, uid, navigation, height }) => {
     const navigateBack = () =>{
         navigation.navigate('MessageScreen')
     }
+    const openProfile = () =>{
+        navigation.navigate('ProfileScreen')
+      }
     return(
         <View style={[styles.chatScreenHeaderParent, {height: height}]}>
             <View style={styles.profilePicUsernameWrapper}>
                 <TouchableOpacity onPress={navigateBack}>
                     <Icon name='arrow-back' size={30} color={colors.black}/>
                 </TouchableOpacity>
-                <View>
+                <TouchableOpacity onPress={openProfile}>
                     <ProfilePic uri={profilePic} size={40}/>
-                </View>
+                </TouchableOpacity>
                 <View style={styles.usernameParent}>
                     <Text style={styles.username}>{username}</Text>
                 </View>

@@ -1,12 +1,8 @@
 import React, {useCallback, useState, useEffect} from 'react';
 import {
   View,
-  Text,
-  ScrollView,
   Dimensions,
-  KeyboardAvoidingView,
-  Keyboard,
-  TouchableWithoutFeedback,
+  TouchableOpacity
 } from 'react-native';
 import styles from './styles';
 import moment from 'moment';
@@ -61,14 +57,13 @@ const ChatScreen = ({navigation, route}) => {
 
   return (
     <View>
-      <ChatScreenHeader
-        profilePic={data.user.profilePic}
-        username={data.user.username}
-        uid={data.user.uid}
-        navigation={navigation}
-        height={headerHeight}
-      />
-
+        <ChatScreenHeader
+          profilePic={data.user.profilePic}
+          username={data.user.username}
+          uid={data.user.uid}
+          navigation={navigation}
+          height={headerHeight}
+        />
       <Messages chatMessages={chatMessages} height={chatScreenHeight} />
     </View>
   );
