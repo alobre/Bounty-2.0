@@ -6,14 +6,28 @@ import colors from 'app/global/variables/colors';
 import Handshake from 'app/assets/fonts/handshake';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import CommentSection from 'app/Screens/CommentSection';
+import {useSelector, useDispatch} from 'react-redux'
+import { setRBSheet } from '../../../redux/actions';
 
 const InteractionSection = ({navigation, bountyDetails}) => {
   const uri =
     'https://bilder.berchtesgadener-land.com/workspace/pixxio/tt.php?w=1600&q=80&dataPath=/pixxiodata/systems/bgl&src=/fileArchiv/tb/TbCqc1wa4Y2wVbKDSf__1535620105_5427100.jpg';
   const [interactions, setInteraction] = useState(bountyDetails.interactions);
   const refRBSheet = useRef();
-  
+
+  const {current} = useSelector(state => state.RBSheetReducer)
+  const dispatch = useDispatch();
+
   const [openComments, setOpenComments] = useState(false)
+  const open = () =>{
+    setOpenComments(true)
+    dispatch(setRBSheet(refRBSheet))
+  }
+  const close = () =>{
+    setOpenComments(false)
+    dispatch(setRBSheet(''))
+  }
+
   useEffect(()=>{
     openComments ? refRBSheet.current.open() : refRBSheet.current.close();
   },[openComments])
@@ -21,13 +35,10 @@ const InteractionSection = ({navigation, bountyDetails}) => {
   // const showComments = () => {
   //   navigation.navigate('CommentSection', {bountyDetails: bountyDetails});
   // };
-  const modalCallback = useCallback(visible => {
-    setOpenSendOfferModal(visible)
-  }, [])
   const { width, height } = Dimensions.get('window');
   return (
     <View style={styles.InteractionSection}>
-      <TouchableOpacity onPress={()=>setOpenComments(true)} style={styles.comments}>
+      <TouchableOpacity onPress={open} style={styles.comments}>
         <Icon name="comment-discussion" size={30} color={colors.black}></Icon>
         <View style={styles.imageWrapper}>
           {interactions.map((user, index) => {
@@ -57,13 +68,13 @@ const InteractionSection = ({navigation, bountyDetails}) => {
       {/* BOTTOM SHEET */}
 
       <RBSheet
-        // style={styles.bottomSheet}
         ref={refRBSheet}
         closeOnDragDown={true}
         closeOnPressMask={true}
         height={height}
         dragFromTopOnly={true}
         openDuration={400}
+        onClose={close}
         customStyles={{
           wrapper: {
             // backgroundColor: 'transparent',

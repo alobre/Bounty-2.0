@@ -12,6 +12,8 @@ import SendOffer from './app/Screens/SendOffer';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import ChatScreenHeader from './app/Screens/ChatScreen/ChatScreenHeader';
+import {Provider} from 'react-redux'
+import {Store} from './app/redux/store'
 
 const HomeStack = createNativeStackNavigator();
 const HomeStackScreen = () => {
@@ -100,31 +102,33 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Tab.Navigator initialRouteName="Home">
-        <Tab.Screen
-        name="Home"
-        component={HomeStackScreen}
-        options={{
-          headerShown: false,
-          tabBarLabel: 'Home',
-          tabBarIcon: ({ color }) => (
-            <Icon name="home" color={color} size={26} />
-          ),
-        }}
-        />
-        <Tab.Screen
-        name="Messages"
-        component={MessageStackScreen}
-        options={{
-          headerShown: false,
-          tabBarLabel: 'Messages',
-          tabBarIcon: ({ color }) => (
-            <Icon name="chat" color={color} size={26} />
-          ),
-        }}
-        />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <Provider store={Store}>
+      <NavigationContainer>
+        <Tab.Navigator initialRouteName="Home">
+          <Tab.Screen
+          name="Home"
+          component={HomeStackScreen}
+          options={{
+            headerShown: false,
+            tabBarLabel: 'Home',
+            tabBarIcon: ({ color }) => (
+              <Icon name="home" color={color} size={26} />
+            ),
+          }}
+          />
+          <Tab.Screen
+          name="Messages"
+          component={MessageStackScreen}
+          options={{
+            headerShown: false,
+            tabBarLabel: 'Messages',
+            tabBarIcon: ({ color }) => (
+              <Icon name="chat" color={color} size={26} />
+            ),
+          }}
+          />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
