@@ -11,7 +11,7 @@ const ChatScreenHeader = ({profilePic, username, uid, navigation, height }) => {
         navigation.navigate('MessageScreen')
     }
     const openProfile = () =>{
-        navigation.navigate('ProfileScreen')
+        navigation.navigate('ProfileScreen', {user:{username, uid, profilePic}})
       }
     return(
         <View style={[styles.chatScreenHeaderParent, {height: height}]}>

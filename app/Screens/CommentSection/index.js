@@ -39,6 +39,7 @@ const CommentSection = ({navigation, route, params}) =>{
                     profilePic={user.profilePic} 
                     comment={user.comment} 
                     subcomment={subcomment} 
+                    uid={user.uid}
                     op_id={op_id} 
                     isOP={isOP} 
                     />

@@ -13,7 +13,7 @@ import colors from 'app/global/variables/colors'
 
 const CommentBountyCard = ({navigation, title, user, description, bounty, currency, image, tags, interactions}) =>{
     const openProfile = () =>{
-        navigation.navigate('ProfileScreen')        
+        navigation.navigate('ProfileScreen', {user})        
     }
     return(
     <ScrollView>

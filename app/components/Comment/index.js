@@ -17,7 +17,7 @@ const transition = (
     </Transition.Together>
 ) 
 
-const Comment = ({navigation, username, rating, profilePic, comment, subcomment, op_id, isOP, refRBSheet}) =>{
+const Comment = ({navigation, username, rating, profilePic, comment, subcomment, uid, op_id, isOP}) =>{
     const auth = true;
     const [openReplyInput, setOpenReplyInput] = useState(false)
     // Implement Reply
@@ -45,7 +45,11 @@ const Comment = ({navigation, username, rating, profilePic, comment, subcomment,
     },[openReplyInput])
 
     const openProfile = () =>{
-        navigation.navigate('ProfileScreen')
+        navigation.navigate('ProfileScreen', {
+            user:{
+                username, rating, profilePic, uid
+            }
+        })
     }
 
     return(
@@ -96,6 +100,7 @@ const Comment = ({navigation, username, rating, profilePic, comment, subcomment,
                 rating={sc.rating} 
                 profilePic={sc.profilePic} 
                 comment={sc.comment} 
+                uid={sc.uid}
                 isOP={sc.uid == op_id}
                 key={sc.uid + sc.time + sc.date}
                 />

@@ -29,7 +29,7 @@ const BountyCard = ({navigation, title, user, description, bounty, currency, ima
         setShowMoreActive(false)
     }
     const openProfile = () =>{
-        navigation.navigate('ProfileScreen')
+        navigation.navigate('ProfileScreen', {user})
     }
 
     const [bountyDetails, setBountyDetails] = useState({
@@ -52,7 +52,7 @@ const BountyCard = ({navigation, title, user, description, bounty, currency, ima
             <View style={styles.profileBountyWrapper}>
                 <View style={styles.profileWrapper}>
                     <TouchableOpacity onPress={openProfile}>
-                    <   ProfilePic uri='https://bilder.berchtesgadener-land.com/workspace/pixxio/tt.php?w=1600&q=80&dataPath=/pixxiodata/systems/bgl&src=/fileArchiv/tb/TbCqc1wa4Y2wVbKDSf__1535620105_5427100.jpg'/>
+                    <ProfilePic uri='https://bilder.berchtesgadener-land.com/workspace/pixxio/tt.php?w=1600&q=80&dataPath=/pixxiodata/systems/bgl&src=/fileArchiv/tb/TbCqc1wa4Y2wVbKDSf__1535620105_5427100.jpg'/>
                     </TouchableOpacity>
                     <View style={styles.usernameAndRating}>
                         <Text style={styles.username}>{user.username}</Text>

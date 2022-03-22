@@ -6,9 +6,13 @@ import avg from 'app/global/functions/avg';
 import Icon from 'react-native-vector-icons/Octicons'
 import colors from 'app/global/variables/colors'
 
-const Subcomment = ({navigation, username, rating, profilePic, comment, isOP}) =>{
+const Subcomment = ({navigation, username, rating, profilePic, comment, uid, isOP}) =>{
     const openProfile = () =>{
-        navigation.navigate('ProfileScreen')
+        navigation.navigate('ProfileScreen', {
+            user:{
+                username, rating, profilePic, uid
+            }
+        })
     }
     return(
         <View style={styles.comment}>

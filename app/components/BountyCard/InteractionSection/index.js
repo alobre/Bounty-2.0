@@ -32,10 +32,8 @@ const InteractionSection = ({navigation, bountyDetails}) => {
     openComments ? refRBSheet.current.open() : refRBSheet.current.close();
   },[openComments])
 
-  // const showComments = () => {
-  //   navigation.navigate('CommentSection', {bountyDetails: bountyDetails});
-  // };
   const { width, height } = Dimensions.get('window');
+  
   return (
     <View style={styles.InteractionSection}>
       <TouchableOpacity onPress={open} style={styles.comments}>
