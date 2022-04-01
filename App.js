@@ -12,6 +12,7 @@ import SendOffer from './app/Screens/SendOffer';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import ChatScreenHeader from './app/Screens/ChatScreen/ChatScreenHeader';
+import ExpertScreen from './app/Screens/ExpertScreen';
 import {Provider} from 'react-redux'
 import {Store} from './app/redux/store'
 
@@ -98,6 +99,23 @@ const MessageStackScreen = () => {
   );
 };
 
+const ExpertStack = createNativeStackNavigator();
+
+const ExpertStackScreen = () => {
+  return (
+    <ExpertStack.Navigator>
+      <ExpertStack.Screen
+        name="ExpertScreen"
+        component={ExpertScreen}
+        options={{
+          headerTitle: 'Experts',
+          animation: 'slide_from_right',
+        }}
+      />
+    </ExpertStack.Navigator>
+  );
+};
+
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -111,6 +129,17 @@ export default function App() {
           options={{
             headerShown: false,
             tabBarLabel: 'Home',
+            tabBarIcon: ({ color }) => (
+              <Icon name="home" color={color} size={26} />
+            ),
+          }}
+          />
+           <Tab.Screen
+          name="ExpertScreen"
+          component={ExpertStackScreen}
+          options={{
+            headerShown: false,
+            tabBarLabel: 'Experts',
             tabBarIcon: ({ color }) => (
               <Icon name="home" color={color} size={26} />
             ),

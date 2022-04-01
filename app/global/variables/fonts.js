@@ -27,6 +27,8 @@ const fonts = StyleSheet.create({
 
     ChatScreenHeaderUsernameFontSize: 20,
 
-    profileScreenUsernameFontSize: 20
+    profileScreenUsernameFontSize: 20,
+
+    expertSliderTitleFontSize: 24
 })
 export default fonts;

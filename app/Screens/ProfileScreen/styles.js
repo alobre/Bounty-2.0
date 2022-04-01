@@ -6,7 +6,9 @@ const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
     profilePicParent:{
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingTop: height * 0.05,
+        backgroundColor: colors.white
     },
     username:{
         fontSize: fonts.profileScreenUsernameFontSize,
