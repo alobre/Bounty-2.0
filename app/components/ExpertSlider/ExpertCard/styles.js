@@ -14,10 +14,14 @@ const styles = StyleSheet.create({
         width: imgDimension,
         backgroundColor: colors.white,
         marginLeft: width * 0.01,
+        borderWidth: 1,
+        // borderRadius: 10,
+        borderColor: colors.borderGrey
     },
     images:{
         height: imgDimension,
-        width: imgDimension,
+        width: imgDimension * 0.95,
+        alignSelf: 'center'
     },
     title:{
         color: colors.black,

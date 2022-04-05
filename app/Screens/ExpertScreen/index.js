@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, ScrollView, Text } from 'react-native'
+import { View, ScrollView, Text, FlatList } from 'react-native'
 import ExpertSlider from 'app/components/ExpertSlider'
 import styles from './styles'
 
@@ -34,7 +34,7 @@ const ExpertScreen = ({navigation}) => {
                 profilePic: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
                 username: 'Peter Fuchs',
                 uid: 'iiop23933',
-                rating: [5,5,5,5,5,5,5,5,5,5,5,5,5]
+                rating: [3,3,3,4,4,5,4,3,5,4]
             },
             title: 'Hobby Designer',
             priceRange: [5, 20, '€'],
@@ -42,10 +42,17 @@ const ExpertScreen = ({navigation}) => {
             expertCardId: 'yxx451'
         }
     ]
+    const data = ['Grafik & Design', 'Fotographie', 'Handwerk']
+    const renderItem = ({item}) =>(
+        <ExpertSlider title={item} experts={grafikExperts} navigation={navigation}/>
+    )
     return(
-        <View>
-            <ExpertSlider title='Grafik & Design' experts={grafikExperts} navigation={navigation}/>
-        </View>
+        <FlatList
+            style={styles.parent}
+            data={data}
+            renderItem={renderItem}
+            keyExtractor={(item)=> item}
+        />
     )
 }
 export default ExpertScreen;

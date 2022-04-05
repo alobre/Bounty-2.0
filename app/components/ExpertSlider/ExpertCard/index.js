@@ -5,8 +5,6 @@ import ProfilePic from 'app/components/BountyCard/ProfilePic'
 import UserData from 'app/components/BountyCard/UserData'
 
 const ExpertCard = ({title, images, priceRange, user, navigation}) => {
-    console.log({title, images, priceRange, user})
-    const img = 'https://reactnative-examples.com/wp-content/uploads/2021/10/white-lily.jpg'
     return(
         <View style={styles.parent}>
             <Image style={styles.images} source={{uri: images[0]}}/>

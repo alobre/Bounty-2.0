@@ -105,10 +105,19 @@ const ExpertStackScreen = () => {
   return (
     <ExpertStack.Navigator>
       <ExpertStack.Screen
-        name="ExpertScreen"
+        name="Experts"
         component={ExpertScreen}
         options={{
           headerTitle: 'Experts',
+          headerShown: false,
+          animation: 'slide_from_right',
+        }}
+      />
+      <ExpertStack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{
+          headerTitle: 'Profile',
           animation: 'slide_from_right',
         }}
       />
