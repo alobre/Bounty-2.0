@@ -9,6 +9,7 @@ import Bounty from './Bounty'
 import InteractionSection from './InteractionSection';
 import Bookmark from './Bookmark';
 import ThreeVerticalDots from './ThreeVerticalDots';
+import UserData from './UserData'
 
 const BountyCard = ({navigation, title, user, description, bounty, currency, image, tags, interactions}) =>{
     const [numOfLines, setNumOfLines] = useState(4);
@@ -49,21 +50,7 @@ const BountyCard = ({navigation, title, user, description, bounty, currency, ima
                 <Tags style={styles.tags} tags={tags} />
                 <Location style={styles.location} city='Wien' zip='1100'/>
             </View>
-            <View style={styles.profileBountyWrapper}>
-                <View style={styles.profileWrapper}>
-                    <TouchableOpacity onPress={openProfile}>
-                    <ProfilePic uri='https://bilder.berchtesgadener-land.com/workspace/pixxio/tt.php?w=1600&q=80&dataPath=/pixxiodata/systems/bgl&src=/fileArchiv/tb/TbCqc1wa4Y2wVbKDSf__1535620105_5427100.jpg'/>
-                    </TouchableOpacity>
-                    <View style={styles.usernameAndRating}>
-                        <Text style={styles.username}>{user.username}</Text>
-                        <View style={styles.ratingWrapper}>
-                            <Text style={styles.rating}>{avg(user.rating)}</Text> 
-                            <Text style={styles.ratingLength}>({user.rating.length})</Text>
-                        </View>
-                    </View>
-                </View>
-                <Bounty style={styles.bounty} currency={currency} bounty={bounty} size={24}/>
-            </View>
+            <UserData user={user} navigation={navigation} bounty={bounty} currency={currency}/>
             <View>
                <Text style={styles.description} numberOfLines={numOfLines} onTextLayout={onTextLayout}>{description}</Text>
                {!showMoreActive && showMore && <Text onPress={showMoreText}>Show More</Text>}

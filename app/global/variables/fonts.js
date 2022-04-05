@@ -29,6 +29,10 @@ const fonts = StyleSheet.create({
 
     profileScreenUsernameFontSize: 20,
 
-    expertSliderTitleFontSize: 24
+    expertSliderTitleFontSize: 24,
+
+    expertCardTitleFontSize: 14,
+
+    expertCardPriceRangeFontSize: 16,
 })
 export default fonts;

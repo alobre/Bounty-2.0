@@ -3,10 +3,10 @@ import { View, ScrollView, Text, FlatList } from 'react-native'
 import ExpertCard from './ExpertCard'
 import styles from './styles'
 
-const ExpertSlider = ({title, experts}) => {
+const ExpertSlider = ({title, experts, navigation}) => {
     const renderItem = ({item}) =>{
         return(
-        <ExpertCard images={item.images} fee={item.fee} title={item.title} user={item.user}/>
+        <ExpertCard images={item.images} priceRange={item.priceRange} title={item.title} user={item.user} navigation={navigation}/>
         )
     }
     return(
@@ -16,6 +16,7 @@ const ExpertSlider = ({title, experts}) => {
                 data={experts}
                 renderItem={renderItem}
                 keyExtractor={(item)=> item.expertCardId}
+                horizontal
             />
         </View>
     )
