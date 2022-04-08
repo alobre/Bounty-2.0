@@ -7,7 +7,7 @@ const ExpertScreen = ({navigation}) => {
     const grafikExperts = [
         {
             user:{
-                profilePic: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+                profilePic: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.acsngroup.eu%2Fwp-content%2Fuploads%2F2020%2F02%2Fedv-design-logo-farbe.png&f=1&nofb=1',
                 username: 'EDV Design',
                 uid: 'asdg345fsd',
                 rating: [5,3,5,5,5,4,5, 5, 5, 5, 4, 4, 5, 3, 5, 5, 5, 5]
@@ -19,7 +19,7 @@ const ExpertScreen = ({navigation}) => {
         },
         {
             user:{
-                profilePic: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+                profilePic: 'https://this-person-does-not-exist.com/img/avatar-b83ba8e6523c0835dd4e685736030ad2.jpg',
                 username: 'MatzeTatze',
                 uid: 'xvcj3245',
                 rating: [5,5,5,5,5,5,5,5,5,5,5,5,5]
@@ -31,7 +31,7 @@ const ExpertScreen = ({navigation}) => {
         },
         {
             user:{
-                profilePic: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+                profilePic: 'https://this-person-does-not-exist.com/img/avatar-f750a85e7de99554a0e73a5fb5ed4a5d.jpg',
                 username: 'Peter Fuchs',
                 uid: 'iiop23933',
                 rating: [3,3,3,4,4,5,4,3,5,4]
@@ -42,9 +42,22 @@ const ExpertScreen = ({navigation}) => {
             expertCardId: 'yxx451'
         }
     ]
-    const data = ['Grafik & Design', 'Fotographie', 'Handwerk']
+    const data = [
+        {
+            title:'Grafik & Design',
+            category_id: 'grapicdesign'
+        }, 
+        {
+            title: 'Fotographie',
+            category_id: 'photography'
+        }, 
+        {
+            title: 'Handwerk',
+            category_id: 'handicraft'
+        }
+    ]
     const renderItem = ({item}) =>(
-        <ExpertSlider title={item} experts={grafikExperts} navigation={navigation}/>
+        <ExpertSlider title={item.title} category_id={item.category_id} experts={grafikExperts} navigation={navigation}/>
     )
     return(
         <FlatList

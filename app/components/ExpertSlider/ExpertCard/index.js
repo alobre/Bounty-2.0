@@ -4,9 +4,9 @@ import styles from './styles'
 import ProfilePic from 'app/components/BountyCard/ProfilePic'
 import UserData from 'app/components/BountyCard/UserData'
 
-const ExpertCard = ({title, images, priceRange, user, navigation}) => {
+const ExpertCard = ({title, images, priceRange, user, navigation, marginHorizontal}) => {
     return(
-        <View style={styles.parent}>
+        <View style={[styles.parent, marginHorizontal && {marginHorizontal}]}>
             <Image style={styles.images} source={{uri: images[0]}}/>
             <UserData user={user} navigation={navigation} size={30} fontSize={14}/>
             <Text style={styles.title}>{title}</Text>

@@ -8,9 +8,11 @@ import MessageScreen from './app/Screens/MessageScreen';
 import ChatScreen from './app/Screens/ChatScreen';
 import NavigationHeader from './app/global/headers/NavigationHeader';
 import ProfileScreen from './app/Screens/ProfileScreen';
+import CategoryScreen from './app/Screens/CategoryScreen';
 import SendOffer from './app/Screens/SendOffer';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Entypo from 'react-native-vector-icons/Entypo';
 import ChatScreenHeader from './app/Screens/ChatScreen/ChatScreenHeader';
 import ExpertScreen from './app/Screens/ExpertScreen';
 import {Provider} from 'react-redux'
@@ -121,6 +123,15 @@ const ExpertStackScreen = () => {
           animation: 'slide_from_right',
         }}
       />
+      <ExpertStack.Screen
+        name="CategoryScreen"
+        component={CategoryScreen}
+        options={{
+          headerTitle: 'CategoryScreen',
+          headerShown: false,
+          animation: 'slide_from_right',
+        }}
+      />
     </ExpertStack.Navigator>
   );
 };
@@ -139,7 +150,7 @@ export default function App() {
             headerShown: false,
             tabBarLabel: 'Home',
             tabBarIcon: ({ color }) => (
-              <Icon name="home" color={color} size={26} />
+              <MaterialIcons name="home" color={color} size={26} />
             ),
           }}
           />
@@ -150,7 +161,7 @@ export default function App() {
             headerShown: false,
             tabBarLabel: 'Experts',
             tabBarIcon: ({ color }) => (
-              <Icon name="home" color={color} size={26} />
+              <Entypo name="slideshare" color={color} size={26} />
             ),
           }}
           />
@@ -161,7 +172,7 @@ export default function App() {
             headerShown: false,
             tabBarLabel: 'Messages',
             tabBarIcon: ({ color }) => (
-              <Icon name="chat" color={color} size={26} />
+              <MaterialIcons name="chat" color={color} size={26} />
             ),
           }}
           />

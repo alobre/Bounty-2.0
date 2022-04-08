@@ -34,5 +34,7 @@ const fonts = StyleSheet.create({
     expertCardTitleFontSize: 14,
 
     expertCardPriceRangeFontSize: 16,
+
+    categoryScreenTitleFontSize: 24,
 })
 export default fonts;

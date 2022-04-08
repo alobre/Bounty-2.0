@@ -9,6 +9,11 @@ const styles = StyleSheet.create({
    title: {
        color: colors.black,
        fontSize: fonts.expertSliderTitleFontSize,
+    //    paddingHorizontal
+   },
+   titleIconWrap:{
+       flexDirection: 'row',
+       justifyContent: 'space-between',
        paddingHorizontal
    }
 })

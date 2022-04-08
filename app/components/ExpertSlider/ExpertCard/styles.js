@@ -13,10 +13,10 @@ const styles = StyleSheet.create({
     parent:{
         width: imgDimension,
         backgroundColor: colors.white,
-        marginLeft: width * 0.01,
         borderWidth: 1,
-        // borderRadius: 10,
-        borderColor: colors.borderGrey
+        borderColor: colors.borderGrey,
+        marginBottom: height * 0.015,
+        marginHorizontal: width*0.005,
     },
     images:{
         height: imgDimension,

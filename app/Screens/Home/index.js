@@ -8,7 +8,7 @@ export default Home = ({navigation}) =>{
         description: `Ich benötige folgende Dinge:Bananen, Milch, Toastbrot, Butter, 200g Haussalami, Tiefkühlpizza (Salami), Schafkäse, Tomaten, Mozzerella.
         Bei Interesse bitte Schreiben!`,
         user: {
-            profilePic: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+            profilePic: 'https://this-person-does-not-exist.com/img/avatar-166c5123161d9c14f65e77f54935f9a4.jpg',
             username: 'Mark Mayer',
             uid: '213zg4trh7',
             rating: [5,3,5,5,5,4,5]
@@ -21,7 +21,7 @@ export default Home = ({navigation}) =>{
         interactions:[
             {
                 comment_id: '123:1',
-                profilePic: 'https://i.vimeocdn.com/portrait/58832_300x300.jpg',
+                profilePic: 'https://this-person-does-not-exist.com/img/avatar-316c5b591622bcbe1d2dd3ce63034845.jpg',
                 username: 'Miriam Beck',
                 uid: 'gfdhf832',
                 rating: [3,4,5,5,4,5,5,5,4,5,3,5,5],
@@ -31,7 +31,7 @@ export default Home = ({navigation}) =>{
             },
             {
                 comment_id: '123:2',
-                profilePic: 'https://i.vimeocdn.com/portrait/58832_300x300.jpg',
+                profilePic: 'https://this-person-does-not-exist.com/img/avatar-4ed8e1b5691640016d07aa404dae2dbb.jpg',
                 username: 'Paul Lorenz',
                 uid: '324wsdg45',
                 rating: [5,5],
@@ -41,7 +41,7 @@ export default Home = ({navigation}) =>{
             },
             {
                 comment_id: '123:1:1',
-                profilePic: 'https://i.vimeocdn.com/portrait/58832_300x300.jpg',
+                profilePic: 'https://this-person-does-not-exist.com/img/avatar-166c5123161d9c14f65e77f54935f9a4.jpg',
                 username: 'Mark Mayer',
                 uid: '213zg4trh7',
                 rating: [5,3,5,5,5,4,5],
@@ -51,7 +51,7 @@ export default Home = ({navigation}) =>{
             },
             {
                 comment_id: '123:2:1',
-                profilePic: 'https://i.vimeocdn.com/portrait/58832_300x300.jpg',
+                profilePic: 'https://this-person-does-not-exist.com/img/avatar-166c5123161d9c14f65e77f54935f9a4.jpg',
                 username: 'Mark Mayer',
                 uid: '213zg4trh7',
                 rating: [5,3,5,5,5,4,5],
@@ -61,7 +61,7 @@ export default Home = ({navigation}) =>{
             },
             {
                 comment_id: '123:2:2',
-                profilePic: 'https://i.vimeocdn.com/portrait/58832_300x300.jpg',
+                profilePic: 'https://this-person-does-not-exist.com/img/avatar-166c5123161d9c14f65e77f54935f9a4.jpg',
                 username: 'Mark Mayer',
                 uid: '213zg4trh7',
                 rating: [5,3,5,5,5,4,5],

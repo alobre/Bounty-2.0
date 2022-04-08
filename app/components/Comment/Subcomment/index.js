@@ -18,7 +18,7 @@ const Subcomment = ({navigation, username, rating, profilePic, comment, uid, isO
         <View style={styles.comment}>
             <View style={styles.profileWrapper}>
                 <TouchableOpacity onPress={openProfile}>
-                    <ProfilePic size={30} uri='https://bilder.berchtesgadener-land.com/workspace/pixxio/tt.php?w=1600&q=80&dataPath=/pixxiodata/systems/bgl&src=/fileArchiv/tb/TbCqc1wa4Y2wVbKDSf__1535620105_5427100.jpg'/>
+                    <ProfilePic size={30} uri={profilePic}/>
                 </TouchableOpacity>
                 <View style={styles.usernameAndRating}>
                 <View style={styles.nameStarWrapper}>

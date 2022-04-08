@@ -58,7 +58,7 @@ const Comment = ({navigation, username, rating, profilePic, comment, subcomment,
             <View>
                 <View style={styles.profileWrapper}>
                     <TouchableOpacity onPress={openProfile}>
-                        <ProfilePic size={30} uri='https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'/>
+                        <ProfilePic size={30} uri={profilePic}/>
                     </TouchableOpacity>
                     <View style={styles.usernameAndRating}>
                         <View style={styles.nameStarWrapper}>
