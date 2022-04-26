@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
         marginBottom: marginBottom
     },
     flatList: {
+        height: height
         // alignItems: 'center'
     },
     expertCard:{

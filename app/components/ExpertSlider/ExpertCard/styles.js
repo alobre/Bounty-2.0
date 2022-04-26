@@ -17,6 +17,8 @@ const styles = StyleSheet.create({
         borderColor: colors.borderGrey,
         marginBottom: height * 0.015,
         marginHorizontal: width*0.005,
+        paddingHorizontal: width*0.01,
+        justifyContent: 'space-between'
     },
     images:{
         height: imgDimension,
@@ -30,7 +32,11 @@ const styles = StyleSheet.create({
     priceRange: {
         color: colors.neutralGreen,
         fontSize: fonts.expertCardPriceRangeFontSize,
-        alignSelf: 'center'
+        alignSelf: 'center',
+        justifyContent: 'flex-end'
+    },
+    priceRangeParent:{
+        paddingBottom: height*0.005
     }
 })
 export default styles;

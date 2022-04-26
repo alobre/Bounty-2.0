@@ -2,10 +2,13 @@ import React, {useState, useEffect} from 'react'
 import { View, Text, FlatList, Dimensions } from 'react-native'
 import styles from './styles'
 import ExpertCard from 'app/components/ExpertSlider/ExpertCard'
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
 const CategoryScreen = ({navigation, route}) => {
     const [category_data, setCategotyData] = useState([])
     const { width, height } = Dimensions.get('window');
+    const tabBarHeight = useBottomTabBarHeight();
+    console.log(height - tabBarHeight)
     useEffect(()=>{
         setCategotyData([
             {
@@ -96,10 +99,13 @@ const CategoryScreen = ({navigation, route}) => {
                 style={styles.flatList}
                 numColumns={2}
                 contentContainerStyle={{
+                    // height: height*0.8,
                     alignItems:'center',
                     justifyContent: 'space-between',
                 }}
             />
+            {/* Temporary Fix so Flatlist doesn't go behind BottomNavBar */}
+            <View style={{height: tabBarHeight*2}}></View>
         </View>
     )
 }
