@@ -126,11 +126,16 @@ const ExpertStackScreen = () => {
       <ExpertStack.Screen
         name="CategoryScreen"
         component={CategoryScreen}
-        options={{
-          headerTitle: 'CategoryScreen',
-          headerShown: false,
-          animation: 'slide_from_right',
-        }}
+        // options={({route})=>{
+        //   title: route.params.title,
+        //   // headerTitle: 'CategoryScreen',
+        //   // headerShown: false,
+        //   animation: 'slide_from_right',
+        // }}
+        options={({route}) => ({
+          title: route.params.title, 
+          animation: 'slide_from_right'
+        })}
       />
     </ExpertStack.Navigator>
   );

@@ -91,7 +91,6 @@ const CategoryScreen = ({navigation, route}) => {
     
     return(
         <View style={styles.parent}>
-            <Text style={styles.title}>{route.params.title}</Text>
             <FlatList
                 data={category_data}
                 renderItem={renderItem}
@@ -99,6 +98,7 @@ const CategoryScreen = ({navigation, route}) => {
                 style={styles.flatList}
                 numColumns={2}
                 contentContainerStyle={{
+                    paddingTop: 10,
                     // height: height*0.8,
                     alignItems:'center',
                     justifyContent: 'space-between',
