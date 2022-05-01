@@ -64,7 +64,7 @@ const ExpertScreen = ({navigation}) => {
             style={styles.parent}
             data={data}
             renderItem={renderItem}
-            keyExtractor={(item)=> item}
+            keyExtractor={(item)=> item.category_id}
         />
     )
 }

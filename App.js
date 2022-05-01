@@ -9,6 +9,7 @@ import ChatScreen from './app/Screens/ChatScreen';
 import NavigationHeader from './app/global/headers/NavigationHeader';
 import ProfileScreen from './app/Screens/ProfileScreen';
 import CategoryScreen from './app/Screens/CategoryScreen';
+import ExpertCardScreen from './app/Screens/ExpertCardScreen';
 import SendOffer from './app/Screens/SendOffer';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -136,6 +137,14 @@ const ExpertStackScreen = () => {
           title: route.params.title, 
           animation: 'slide_from_right'
         })}
+      />
+      <ExpertStack.Screen
+        name="ExpertCardScreen"
+        component={ExpertCardScreen}
+        options={{
+          // headerTitle: 'Profile',
+          animation: 'slide_from_right',
+        }}
       />
     </ExpertStack.Navigator>
   );

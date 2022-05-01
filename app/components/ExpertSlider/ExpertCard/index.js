@@ -1,13 +1,15 @@
 import React, {useState, useEffect} from 'react'
-import { View, Image, ScrollView, Text, FlatList } from 'react-native'
+import { View, Image, ScrollView, Text, FlatList, TouchableOpacity } from 'react-native'
 import styles from './styles'
 import ProfilePic from 'app/components/BountyCard/ProfilePic'
 import UserData from 'app/components/BountyCard/UserData'
-import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
 const ExpertCard = ({title, images, priceRange, user, navigation, marginHorizontal}) => {
+    const openCard = () => {
+        navigation.navigate('ExpertCardScreen', {title, images, priceRange, user, marginHorizontal})
+    }
     return(
-        <View style={[styles.parent, marginHorizontal && {marginHorizontal}]}>
+        <TouchableOpacity onPress={openCard} style={[styles.parent, marginHorizontal && {marginHorizontal}]}>
             <View>
                 <Image style={styles.images} source={{uri: images[0]}}/>
                 <UserData user={user} navigation={navigation} size={30} fontSize={14}/>
@@ -21,7 +23,7 @@ const ExpertCard = ({title, images, priceRange, user, navigation, marginHorizont
                 <Text style={styles.priceRange}>{priceRange[0]} {priceRange[1]}</Text>
                 }
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 export default ExpertCard;
