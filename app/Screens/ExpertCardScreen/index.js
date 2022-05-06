@@ -6,7 +6,7 @@ import styles from './styles'
 
 const ExpertCardScreen = ({navigation, route}) => {
     const {title, images, priceRange, user, marginHorizontal} = route.params
-    const dataArray = [{price: 5, info: 'Test'}, {price: 15, info: 'Test'}, {price: 30, info: 'Test'}]
+    const dataArray = [{price: 5, currency: '€', info: 'Test'}, {price: 15, currency: '€', info: 'Test'}, {price: 30, currency: '€', info: 'Test'}]
     return(
         <View style={styles.parent}>
             <View>

@@ -12,7 +12,6 @@ import { setRBSheet } from '../../../redux/actions';
 const InteractionSection = ({navigation, bountyDetails}) => {
   const uri =
     'https://bilder.berchtesgadener-land.com/workspace/pixxio/tt.php?w=1600&q=80&dataPath=/pixxiodata/systems/bgl&src=/fileArchiv/tb/TbCqc1wa4Y2wVbKDSf__1535620105_5427100.jpg';
-  console.log({bountyDetails})
     const [interactions, setInteraction] = useState(bountyDetails.interactions);
   const refRBSheet = useRef();
 

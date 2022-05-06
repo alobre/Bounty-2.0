@@ -1,12 +1,12 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React, {useState} from 'react'
+import { View, Text, ScrollView } from 'react-native'
 import { Tab, TabView } from '@rneui/themed';
 
 
 const TabNavigation = ({dataArray}) =>{
-    const [index, setIndex] = React.useState(0);
+    const [index, setIndex] = useState(0);
     return(
-        <View>
+        <ScrollView>
             <Tab
             value={index}
             onChange={(e) => setIndex(e)}
@@ -18,12 +18,14 @@ const TabNavigation = ({dataArray}) =>{
             >
                 {
                 dataArray.map(element => {
-                    return(<Tab.Item
-                        title={element.price}
-                        titleStyle={{ fontSize: 12 }}
-                        icon={{ name: 'timer', type: 'ionicon', color: 'white' }}
+                    return(
+                    <Tab.Item
+                        title={element.price + element.currency}
+                        titleStyle={{ fontSize: 16 }}
+                        // icon={{ name: 'timer', type: 'ionicon', color: 'white' }}
                         key={element.price}
-                    />)
+                    />
+                    )
                 })
                 }
                 {/* <Tab.Item
@@ -44,17 +46,17 @@ const TabNavigation = ({dataArray}) =>{
             </Tab>
 
             <TabView value={index} onChange={setIndex} animationType="spring">
-                <TabView.Item style={{ backgroundColor: 'red', width: '100%' }}>
-                    <Text h1>Recent</Text>
-                </TabView.Item>
-                <TabView.Item style={{ backgroundColor: 'blue', width: '100%' }}>
-                    <Text h1>Favorite</Text>
-                </TabView.Item>
-                <TabView.Item style={{ backgroundColor: 'green', width: '100%' }}>
-                    <Text h1>Cart</Text>
-                </TabView.Item>
+                {
+                    dataArray.map(element =>{
+                        return(
+                        <TabView.Item key={element.info} style={{ backgroundColor: 'red', width: '100%', height: 1000 }}>
+                            <Text>{element.info}</Text>
+                        </TabView.Item>
+                        )
+                    })
+                }
             </TabView>
-        </View>
+        </ScrollView>
     )
 }
 export default TabNavigation
