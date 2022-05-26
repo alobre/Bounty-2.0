@@ -1,62 +1,40 @@
-import React, {useState} from 'react'
-import { View, Text, ScrollView } from 'react-native'
-import { Tab, TabView } from '@rneui/themed';
+import React, {useState} from 'react';
+import {View, Text, ScrollView, useWindowDimensions} from 'react-native';
+import {TabView, SceneMap} from 'react-native-tab-view';
 
+const TabNavigation = ({dataArray}) => {
+  const FirstRoute = () => (
+    <View style={{flex: 1, backgroundColor: '#ff4081', height:'100%'}}>
+      <Text>Alo</Text>
+    </View>
+  );
 
-const TabNavigation = ({dataArray}) =>{
-    const [index, setIndex] = useState(0);
-    return(
-        <ScrollView>
-            <Tab
-            value={index}
-            onChange={(e) => setIndex(e)}
-            indicatorStyle={{
-                backgroundColor: 'white',
-                height: 3,
-            }}
-            variant="primary"
-            >
-                {
-                dataArray.map(element => {
-                    return(
-                    <Tab.Item
-                        title={element.price + element.currency}
-                        titleStyle={{ fontSize: 16 }}
-                        // icon={{ name: 'timer', type: 'ionicon', color: 'white' }}
-                        key={element.price}
-                    />
-                    )
-                })
-                }
-                {/* <Tab.Item
-                    title="Recent"
-                    titleStyle={{ fontSize: 12 }}
-                    icon={{ name: 'timer', type: 'ionicon', color: 'white' }}
-                />
-                <Tab.Item
-                    title="favorite"
-                    titleStyle={{ fontSize: 12 }}
-                    icon={{ name: 'heart', type: 'ionicon', color: 'white' }}
-                />
-                <Tab.Item
-                    title="cart"
-                    titleStyle={{ fontSize: 12 }}
-                    icon={{ name: 'cart', type: 'ionicon', color: 'white' }}
-                /> */}
-            </Tab>
+  const SecondRoute = () => (
+    <View style={{flex: 1, backgroundColor: '#673ab7'}}>
+      <Text>Bre</Text>
+    </View>
+  );
 
-            <TabView value={index} onChange={setIndex} animationType="spring">
-                {
-                    dataArray.map(element =>{
-                        return(
-                        <TabView.Item key={element.info} style={{ backgroundColor: 'red', width: '100%', height: 1000 }}>
-                            <Text>{element.info}</Text>
-                        </TabView.Item>
-                        )
-                    })
-                }
-            </TabView>
-        </ScrollView>
-    )
-}
-export default TabNavigation
+  const renderScene = SceneMap({
+    first: FirstRoute,
+    second: SecondRoute,
+  });
+  const layout = useWindowDimensions();
+
+  const [index, setIndex] = useState(0);
+  const [routes] = React.useState([
+    {key: 'first', title: 'First'},
+    {key: 'second', title: 'Second'},
+  ]);
+  return (
+    <ScrollView>
+      <TabView
+        navigationState={{index, routes}}
+        renderScene={renderScene}
+        onIndexChange={setIndex}
+        initialLayout={{width: layout.width}}
+      />
+    </ScrollView>
+  );
+};
+export default TabNavigation;
