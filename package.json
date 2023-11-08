@@ -10,11 +10,16 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@babel/preset-env": "^7.23.2",
     "@react-navigation/bottom-tabs": "^6.2.0",
     "@react-navigation/native": "^6.0.8",
     "@react-navigation/native-stack": "^6.4.1",
     "axios": "^0.27.2",
     "babel": "^6.23.0",
+    "metro": "^0.80.0",
+    "metro-core": "^0.80.0",
+    "metro-react-native-babel-transformer": "^0.77.0",
+    "metro-transform-worker": "^0.80.0",
     "moment": "^2.29.1",
     "react": "17.0.2",
     "react-native": "0.67.2",
@@ -27,13 +32,13 @@
     "react-native-screens": "^3.10.2",
     "react-native-svg": "^12.1.1",
     "react-native-tab-view": "^3.1.1",
-    "react-native-vector-icons": "^9.0.0",
+    "react-native-vector-icons": "^10.0.1",
     "react-redux": "^7.2.6",
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.0",
+    "@babel/core": "^7.23.2",
     "@babel/runtime": "^7.17.0",
     "@react-native-community/eslint-config": "^3.0.1",
     "babel-jest": "^27.5.0",

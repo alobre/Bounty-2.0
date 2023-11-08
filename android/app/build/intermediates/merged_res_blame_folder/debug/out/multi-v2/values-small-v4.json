@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\wsowy\\Documents\\Programmieren\\Bounty-2.0\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-small-v4\\values-small-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\wsowy\\.gradle\\caches\\transforms-3\\7c0c7e113c074df493b9385345dc4b6b\\transformed\\material-1.1.0\\res\\values-small-v4\\values-small-v4.xml",
+                    "source": "C:\\Users\\wsowy\\.gradle\\caches\\transforms-3\\0785719cef268f39188a4576100035a3\\transformed\\material-1.1.0\\res\\values-small-v4\\values-small-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
